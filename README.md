@@ -4,9 +4,12 @@
 > Developed for BBDNITM Class B8 · Team Spark · B.Tech CSE (AI/ML) Semester 1
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-success?style=for-the-badge&logo=vercel)](https://skillmate-one.vercel.app/)
-[![Status](https://img.shields.io/badge/Status-Active-2ca58d?style=for-the-badge)](https://skillmate-one.vercel.app/)
+[![Status](https://img.shields.io/badge/Status-Interactive%20Prototype-orange?style=for-the-badge)](https://skillmate-one.vercel.app/)
+[![License](https://img.shields.io/badge/Project-Academic%20Concept-blue?style=for-the-badge)](https://skillmate-one.vercel.app/)
 
 🌐 **Live Website**: [https://skillmate-one.vercel.app/](https://skillmate-one.vercel.app/)
+
+> 💡 **Interactive Concept Prototype**: SkillMate is currently an early-stage interactive prototype developed by Team Spark to explore how AI-assisted social architecture can bridge the gap between digital loneliness and real-world passion for college students. All member profiles, testimonial quotes, and activity metrics are simulated demo data created for pilot validation.
 
 ---
 

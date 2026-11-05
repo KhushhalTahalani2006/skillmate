@@ -515,7 +515,7 @@ document.addEventListener('DOMContentLoaded', () => {
           state.user.joinedCircles = userCircles;
     // In-memory session only: clean fresh state guaranteed on reload
         }
-        showToast('Joined Circle! Connecting to Campus Group Chat...');
+        showToast('Joined Circle (Demo Mode) · Connecting to simulated campus chat! ✨');
       } else {
         btn.classList.remove('joined');
         btn.textContent = 'Join Circle';
@@ -1003,7 +1003,7 @@ document.addEventListener('DOMContentLoaded', () => {
           state.user.joinedCircles = userCircles;
     // In-memory session only: clean fresh state guaranteed on reload
         }
-        showToast('RSVP Confirmed! You are in the circle squad ✨');
+        showToast('RSVP Confirmed! (Demo action simulated in prototype) ✨');
       } else {
         intelJoinBtn.classList.remove('joined');
         intelJoinBtn.textContent = 'Join & RSVP Now ✨';
@@ -1501,7 +1501,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showToast(`Welcome ${state.user.name}! Joined "${pendingCircleToJoin}" circle squad! 🚀`);
         pendingCircleToJoin = null;
       } else {
-        showToast(`Welcome to SkillMate, ${state.user.name}! Your student ID is verified ✨`);
+        showToast(`Welcome to demo mode, ${state.user.name}! (Simulated student session) ✨`);
       }
 
       const dest = pendingNavigationTarget || 'join-circle';
@@ -2003,7 +2003,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (aiVenueDrawer) {
             aiVenueDrawer.style.display = 'none';
           }
-          showToast(`Selected "${placeName}" via AI Safety Engine ✨`);
+          showToast(`Selected "${placeName}" (Sample safe venue recommendation) ✨`);
         });
       });
     }
@@ -2053,7 +2053,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (aiVenueDrawer) {
         aiVenueDrawer.style.display = 'none';
       }
-      showToast(`Selected "${placeName}" via AI Safety Engine ✨`);
+      showToast(`Selected "${placeName}" (Sample safe venue recommendation) ✨`);
     });
   });
 
@@ -2496,7 +2496,7 @@ document.addEventListener('DOMContentLoaded', () => {
         bindChatChannelItem(newChannel, title, venue, '✨');
       }
 
-      showToast(`Circle "${title}" published live to campus feed! 🚀`);
+      showToast(`Circle "${title}" published to demo campus feed! (Simulated in prototype) 🚀`);
       if (studioForm) studioForm.reset();
       updateStudioPreview();
       goToStudioStage(1);
@@ -3798,4 +3798,41 @@ document.addEventListener('DOMContentLoaded', () => {
     applyTheme(state.currentTheme);
   }
   applyLanguage(state.currentLang);
+
+  // ==========================================================================
+  // LINKEDIN LAUNCH ENHANCEMENTS: INTERACTIVE PROTOTYPE HELPERS
+  // ==========================================================================
+  // 1. Footer newsletter demo handler
+  const footerNewsletterBtn = document.querySelector('.newsletter-btn');
+  const footerNewsletterInput = document.querySelector('.newsletter-input');
+  if (footerNewsletterBtn && footerNewsletterInput) {
+    footerNewsletterBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const email = footerNewsletterInput.value.trim();
+      if (!email || !email.includes('@')) {
+        showToast('⚠️ Please enter a valid college email address.');
+        return;
+      }
+      footerNewsletterInput.value = '';
+      showToast('✨ Thank you for your interest! (Simulated waitlist in demo mode)');
+    });
+  }
+
+  // 2. Forgot password informative demo handler
+  const forgotPassLink = document.getElementById('link-forgot-pass');
+  if (forgotPassLink) {
+    forgotPassLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      showToast('ℹ️ Prototype Demo: You can test sign-in with any sample email & password or Google 1-Tap.');
+    });
+  }
+
+  // 3. Student app brand logo click router
+  const studentAppBrandBtn = document.getElementById('student-app-brand-btn');
+  if (studentAppBrandBtn) {
+    studentAppBrandBtn.addEventListener('click', () => {
+      switchStudentTab('join-circle');
+    });
+  }
+
 });
