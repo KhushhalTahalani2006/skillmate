@@ -1,0 +1,2777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>SkillMate · Share Skills. Find People. Do More.</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/skillmate-icon.png">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="cinematic-storytelling.css">
+</head>
+<body>
+
+  <!-- Custom Interactive Cursor (Disabled for native zero-latency responsiveness) -->
+
+  <!-- ========================================================================
+       PUBLIC LANDING EXPERIENCE (SHOWN WHEN LOGGED OUT)
+       ======================================================================== -->
+  <div id="view-public-landing">
+
+  <!-- ========================================================================
+       CLEAN, PROFESSIONAL TOP NAVIGATION BAR
+       ======================================================================== -->
+  <header>
+    <div class="glass-nav-container">
+      
+      <!-- Module 1: Brand Box -->
+      <a href="#" class="nav-box-brand">
+        <div class="brand-emblem-wrap">
+          <img src="assets/skillmate-icon.png" alt="SkillMate" class="brand-emblem">
+        </div>
+        <span class="brand-title">SkillMate</span>
+      </a>
+
+      <!-- Module 2: Primary Nav Links -->
+      <nav class="nav-box-links">
+        <a href="#chapter-discovery" class="nav-link-pill" data-i18n="nav_explore">Explore Circles</a>
+        <a href="#chapter-experience" class="nav-link-pill" data-i18n="nav_how">How It Works</a>
+        <a href="#safety" class="nav-link-pill" data-i18n="nav_safety">Campus Safety</a>
+        <a href="#faq" class="nav-link-pill" data-i18n="nav_faq">Frequently Asked Questions</a>
+        <a href="#about" class="nav-link-pill" data-i18n="nav_about">About</a>
+      </nav>
+
+      <!-- Module 3: Utilities & Actions Box (Language, Subtle Sound, Sign In CTA) -->
+      <div class="nav-box-actions">
+        
+        <!-- Multi-Language Selector Dropdown (8 Indian Languages) -->
+        <div style="position: relative;">
+          <button class="nav-ctrl-btn" id="lang-toggle-btn" aria-label="Select Language">
+            <span>🌐</span>
+            <span id="current-lang-text">English (EN)</span>
+            <span style="font-size:0.6rem;">▼</span>
+          </button>
+          
+          <div class="dropdown-panel" id="lang-panel" data-lenis-prevent="true" data-lenis-prevent-wheel="true" data-lenis-prevent-touch="true">
+            <div class="panel-header">Choose Language / भाषा चुनें</div>
+            <div class="lang-grid">
+              <button class="lang-option active" data-lang="en">
+                <span class="lang-native">English</span>
+                <span class="lang-eng">Default</span>
+              </button>
+              <button class="lang-option" data-lang="hi">
+                <span class="lang-native">हिंदी</span>
+                <span class="lang-eng">Hindi</span>
+              </button>
+              <button class="lang-option" data-lang="hinglish">
+                <span class="lang-native">Hinglish</span>
+                <span class="lang-eng">Gen Z</span>
+              </button>
+              <button class="lang-option" data-lang="bn">
+                <span class="lang-native">বাংলা</span>
+                <span class="lang-eng">Bengali</span>
+              </button>
+              <button class="lang-option" data-lang="mr">
+                <span class="lang-native">मराठी</span>
+                <span class="lang-eng">Marathi</span>
+              </button>
+              <button class="lang-option" data-lang="ta">
+                <span class="lang-native">தமிழ்</span>
+                <span class="lang-eng">Tamil</span>
+              </button>
+              <button class="lang-option" data-lang="te">
+                <span class="lang-native">తెలుగు</span>
+                <span class="lang-eng">Telugu</span>
+              </button>
+              <button class="lang-option" data-lang="kn">
+                <span class="lang-native">ಕನ್ನಡ</span>
+                <span class="lang-eng">Kannada</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ambient Background Music Button with Equalizer Bars (Opt-In Only) -->
+        <button class="nav-ctrl-btn" id="bg-music-toggle-btn" title="Toggle Ambient Collegiate Soundscape">
+          <span class="music-eq-icon">
+            <span class="eq-bar eq-1"></span>
+            <span class="eq-bar eq-2"></span>
+            <span class="eq-bar eq-3"></span>
+          </span>
+          <span id="music-btn-text" data-i18n="sound_label">Sound</span>
+        </button>
+
+        <!-- High-Contrast Sign In Button -->
+        <button class="nav-primary-action btn-hero-get-started" id="btn-nav-signin" title="Sign in or join campus circles">
+          <span>Sign In</span>
+          <span>→</span>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+    <main id="app-main">
+
+      <!-- Story Narrative HUD Tracker -->
+      <div class="story-hud" id="story-hud" aria-label="Story Narrative Tracker">
+        <span class="story-hud-dot"></span>
+        <span class="story-hud-chapter" id="hud-chapter-text">Chapter 01 · Community</span>
+        <div class="story-hud-progress-bar">
+          <div class="story-hud-progress-fill" id="hud-progress-fill"></div>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           CHAPTER 01: THE HOOK (Editorial Split Hero & Lifestyle Showcase)
+           ====================================================================== -->
+      <section class="story-chapter chapter-hook-section" id="chapter-hook">
+        <div class="hero-split-container">
+          
+          <!-- Left Column: Typography, Actions, Instant Discovery & Metrics -->
+          <div class="hero-content-col">
+            <div class="hero-badge-pill">
+              <span class="hero-pulse-dot"></span>
+              <span data-i18n="hero_badge">COMMUNITY-FIRST CAMPUS PLATFORM · VERIFIED CIRCLES</span>
+            </div>
+
+            <h1 class="hero-title">
+              <span data-i18n="hero_title_1">Find something you love doing.</span><br>
+              <span class="gradient-word" data-i18n="hero_title_2">Find people who love doing it too.</span>
+            </h1>
+
+            <p class="hero-subtitle" data-i18n="hero_subtitle">
+              Weekly offline hobby circles for campus students and young adults across Indian cities. Pick your craft, find your squad, and meet safely nearby.
+            </p>
+
+            <!-- Instant Above-the-Fold Discovery Console -->
+            <div class="hero-instant-discovery">
+              <div class="hero-discovery-console">
+                <div class="discovery-search-field">
+                  <span class="discovery-search-icon">🔍</span>
+                  <input type="text" id="hero-discovery-input" class="discovery-search-input" placeholder="Search craft (Football, Cycling, Jamming, Books)..." aria-label="Search hobby circles">
+                </div>
+                <div class="discovery-divider"></div>
+                <div class="discovery-zone-field">
+                  <span class="discovery-search-icon">📍</span>
+                  <select id="hero-discovery-zone" class="discovery-zone-select" aria-label="Select Campus Zone">
+                    <option value="all">All Campus Zones</option>
+                    <option value="riverfront">Gomti Riverfront</option>
+                    <option value="turf">Campus Sports Turf</option>
+                    <option value="hazratganj">Hazratganj &amp; Cafes</option>
+                    <option value="amphitheater">Campus Amphitheater</option>
+                    <option value="tech">Innovation Lab</option>
+                  </select>
+                </div>
+                <button type="button" class="discovery-submit-btn" id="btn-hero-find-circles">
+                  <span>Find Circles</span>
+                  <span>🚀</span>
+                </button>
+              </div>
+
+              <!-- Quick Trending Category Pills -->
+              <div class="hero-trending-row">
+                <span class="trending-badge">Trending:</span>
+                <button type="button" class="hero-trend-pill" data-trend-category="sports">⚽ Turf Football</button>
+                <button type="button" class="hero-trend-pill" data-trend-category="outdoors">🚲 Sunrise Cycling</button>
+                <button type="button" class="hero-trend-pill" data-trend-category="music">🎸 Jamming</button>
+                <button type="button" class="hero-trend-pill" data-trend-category="books">📚 Book Club</button>
+                <button type="button" class="hero-trend-pill" data-trend-category="crafts">🏺 Pottery &amp; Art</button>
+              </div>
+            </div>
+
+            <div class="hero-cta-cluster">
+              <button class="hero-cta-primary btn-hero-get-started" id="btn-hook-get-started">
+                <span data-i18n="hero_cta_get_started">Step Into Your Circle</span>
+                <span>🚀</span>
+              </button>
+              <a href="#chapter-discovery" class="hero-cta-secondary">
+                <span data-i18n="nav_explore">Explore Hobbies Nearby</span>
+                <span>↓</span>
+              </a>
+            </div>
+
+            <!-- Social Proof Strip -->
+            <div class="hero-social-proof">
+              <div class="avatar-stack">
+                <img src="assets/images/indian-friends-laughing.jpg" alt="Member" class="avatar-thumb">
+                <img src="assets/images/cycling-indian.jpg" alt="Member" class="avatar-thumb">
+                <img src="assets/images/badminton-indian.jpg" alt="Member" class="avatar-thumb">
+                <img src="assets/images/music-indian.jpg" alt="Member" class="avatar-thumb">
+              </div>
+              <div class="social-proof-meta">
+                <div class="rating-stars">★★★★★ <span class="rating-val">4.9/5</span></div>
+                <div class="social-proof-lbl">from 1,400+ active members in Lucknow, Delhi NCR &amp; Bengaluru</div>
+              </div>
+            </div>
+
+            <!-- Metrics Row -->
+            <div class="hero-metrics-row">
+              <div class="stat-item">
+                <div class="stat-number" data-i18n="hero_stat_1_val">100%</div>
+                <div class="stat-label" data-i18n="hero_stat_1_lbl">Student Verified</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number" data-i18n="hero_stat_2_val">1–20 km</div>
+                <div class="stat-label" data-i18n="hero_stat_2_lbl">Micro-Radius</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number" data-i18n="hero_stat_3_val">&lt; 15 Mins</div>
+                <div class="stat-label" data-i18n="hero_stat_3_lbl">Avg Match Time</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Clean Lifestyle Visual Showcase -->
+          <div class="hero-visual-stage" id="hero-visual-stage">
+            
+            <!-- Live Pulse Badge (Floating Top Left) -->
+            <div class="visual-live-pill clickable-hero-badge" id="hero-pill-live" data-depth="0.06" title="Explore active campus circles">
+              <span class="live-pulse-dot"></span>
+              <span>14 Circles Live Today · Gomti Riverfront</span>
+            </div>
+
+            <!-- Satellite Card 1 (Floating Top Right - Turf Football) -->
+            <div class="visual-sat-card sat-top clickable-hero-card" id="hero-card-football" data-depth="0.05" title="Click for Friday Football Intel">
+              <div class="sat-card-media">
+                <img src="assets/images/football-indian.jpg" alt="Turf Football">
+                <span class="sat-badge sat-badge-sunset">⚽ 5v5 Turf</span>
+              </div>
+              <div class="sat-card-body">
+                <div class="sat-card-title">Friday Floodlit Match</div>
+                <div class="sat-card-meta">🟢 2 Spots Left · 8:30 PM</div>
+              </div>
+            </div>
+
+            <!-- Centerpiece Anchor Card (Sunrise Cycling) -->
+            <div class="visual-card-main clickable-hero-card" id="hero-card-cycling" data-depth="0.02" title="Click for Cycling Circle Intel">
+              <img src="assets/images/community-terrace.jpg" alt="SkillMate Community Terrace" class="main-visual-img">
+              <div class="visual-caption-glass">
+                <div class="caption-tag">✦ COLLEGIATE THIRD PLACE</div>
+                <div class="caption-title">Sunrise Cycling &amp; Rooftop Chai</div>
+                <div class="caption-meta">
+                  <span class="caption-pulse"></span>
+                  <span>9 joined · Tomorrow 6:00 AM · Hazratganj</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Safety Badge (Floating Bottom Right) -->
+            <div class="visual-safe-pill clickable-hero-badge" id="hero-pill-safety" data-depth="0.04" title="Review Student Safety Guardrails">
+              <span>🛡️</span>
+              <span>100% Student Verified Spaces</span>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           CHAPTER 02: THE PROBLEM (The Silent City / Sticky Visual Scene)
+           ====================================================================== -->
+      <section class="story-chapter chapter-problem-section" id="chapter-problem">
+        <div class="problem-grid-container">
+          
+          <!-- Left: Sticky Atmospheric Visual Window -->
+          <div class="problem-visual-sticky" id="problem-visual-sticky">
+            <div class="problem-img-window">
+              <img src="assets/images/urban-solitude.jpg" alt="Urban Solitude" class="problem-img-main" id="problem-img-active">
+              <div class="problem-vignette-overlay"></div>
+              <div class="problem-callout-badge">
+                <span style="color:#e06d53; font-weight:700;">● THE REALITY IN URBAN INDIA</span><br>
+                Over 68% of relocated college students &amp; young grads report having free time with zero real-world plans.
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Narrative & 3 Visceral Friction Points -->
+          <div class="problem-narrative-flow">
+            <div class="chapter-badge chapter-badge-amber">
+              <span>Chapter 02 · Why SkillMate</span>
+            </div>
+            <h2 class="chapter-title-section">
+              A city of 10 million people.<br>
+              <span class="highlight-warm">Yet your evenings are spent alone scrolling.</span>
+            </h2>
+            <p class="chapter-lead">
+              You moved here for college or your first job. You have free evenings and unspent energy. But modern digital channels make finding authentic friends harder than ever.
+            </p>
+
+            <div class="friction-card" data-friction="1">
+              <div class="friction-card-num">FRICTION 01</div>
+              <h3 class="friction-card-title">The Infinite Scroll Loop</h3>
+              <p class="friction-card-desc">
+                3 to 5 hours consumed every evening watching other people live their lives on short-form video algorithms. You feel exhausted, detached, and more isolated than before you unlocked your phone.
+              </p>
+            </div>
+
+            <div class="friction-card" data-friction="2">
+              <div class="friction-card-num">FRICTION 02</div>
+              <h3 class="friction-card-title">The Dating App Swipe Trap</h3>
+              <p class="friction-card-desc">
+                Awkward 1-on-1 cold chats, superficial resume vetting, and 90% ghosting rates. You didn't want romance or job interviews—you just wanted someone to play badminton or jam guitar with.
+              </p>
+            </div>
+
+            <div class="friction-card" data-friction="3">
+              <div class="friction-card-num">FRICTION 03</div>
+              <h3 class="friction-card-title">The WhatsApp Group Blackhole</h3>
+              <p class="friction-card-desc">
+                200-person chaotic group chats full of spam, lurkers, and endless "let's plan something" messages that fizzle out before Saturday morning.
+              </p>
+            </div>
+
+            <div class="resolution-banner">
+              <div class="resolution-banner-text">You don't need another dating app.</div>
+              <p class="resolution-banner-sub">
+                You need a modern, welcoming third place built around shared crafts and persistent weekly circles.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           CHAPTER 03: THE DISCOVERY (Horizontal Hobby Exhibition)
+           ====================================================================== -->
+      <section class="chapter-discovery-section" id="chapter-discovery">
+        <div class="discovery-header-wrap">
+          <div>
+            <div class="chapter-badge">
+              <span>Chapter 03 · Explore Circles</span>
+            </div>
+            <h2 class="chapter-title-section" style="margin-bottom:8px;" data-i18n="explore_title">
+              Every Craft Has Its Tribe.
+            </h2>
+            <p class="chapter-lead" style="margin-bottom:0;" data-i18n="explore_sub">
+              Scroll through live campus and neighborhood micro-circles. 1-tap join, zero resume vetting.
+            </p>
+          </div>
+          <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+            <div class="craft-filter-bar">
+              <button class="craft-filter-pill active" data-filter="all">All Crafts</button>
+            <button class="craft-filter-pill" data-filter="sports">⚽ Sports</button>
+            <button class="craft-filter-pill" data-filter="outdoors">🚲 Outdoors</button>
+            <button class="craft-filter-pill" data-filter="music">🎸 Jamming</button>
+            <button class="craft-filter-pill" data-filter="crafts">🏺 Pottery &amp; Art</button>
+            <button class="craft-filter-pill" data-filter="books">📚 Books &amp; Coffee</button>
+            <button class="craft-filter-pill" data-filter="tech">💻 Coding</button>
+            </div>
+            <div class="horizontal-nav-arrows">
+              <button class="horiz-arrow-btn" id="horiz-prev-btn" aria-label="Previous Hobbies">‹</button>
+              <button class="horiz-arrow-btn" id="horiz-next-btn" aria-label="Next Hobbies">›</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Horizontal Scroll Track -->
+        <div class="horizontal-scroll-container" id="horizontal-scroll-container">
+          <div class="horizontal-track" id="horizontal-track">
+            
+            <!-- Card 1: Music -->
+            <div class="hobby-exhibit-card" data-category="music">
+              <div class="hobby-card-media">
+                <img src="assets/images/music-indian.jpg" alt="Acoustic Jamming Circle" class="hobby-card-img">
+                <span class="hobby-card-badge-top">🎸 MUSIC &amp; INDIE</span>
+                <span class="hobby-card-distance">0.5 KM</span>
+              </div>
+              <div class="hobby-card-body">
+                <h3 class="hobby-card-title" data-i18n="circle_music_title">Acoustic Jamming &amp; Vocal Circle</h3>
+                <div class="hobby-card-meta" data-i18n="circle_music_meta">Thu · 6:30 PM · Campus Amphitheater</div>
+                <p class="hobby-card-desc" data-i18n="circle_music_desc">Open guitarists, vocalists, and percussionists circle. Acoustic vibes, Bollywood &amp; Indie classics over sunset.</p>
+                <div class="hobby-card-footer">
+                  <span class="hobby-spots-indicator" data-i18n="circle_music_spots">7 Joined · Open Circle</span>
+                  <button class="hobby-btn-join btn-join-circle" data-i18n="card_btn_join">Join Circle</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Pottery -->
+            <div class="hobby-exhibit-card" data-category="crafts">
+              <div class="hobby-card-media">
+                <img src="assets/images/pottery-craft.jpg" alt="Wheel Pottery Workshop" class="hobby-card-img">
+                <span class="hobby-card-badge-top">🏺 TACTILE CRAFTS</span>
+                <span class="hobby-card-distance">2.4 KM</span>
+              </div>
+              <div class="hobby-card-body">
+                <h3 class="hobby-card-title">Wheel Pottery &amp; Clay Handbuilding</h3>
+                <div class="hobby-card-meta">Sat · 4:00 PM · ClayGround Studio, Gomti Nagar</div>
+                <p class="hobby-card-desc">Mindful terracotta wheel throwing and hand-molding for beginners. All clay &amp; glazes provided with chai break.</p>
+                <div class="hobby-card-footer">
+                  <span class="hobby-spots-indicator">6 Joined · 2 Spots Left</span>
+                  <button class="hobby-btn-join btn-join-circle" data-i18n="card_btn_join">Join Circle</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: Cycling -->
+            <div class="hobby-exhibit-card" data-category="outdoors">
+              <div class="hobby-card-media">
+                <img src="assets/images/cycling-indian.jpg" alt="Riverfront Sunrise Cycling" class="hobby-card-img">
+                <span class="hobby-card-badge-top">🚲 CYCLING &amp; CHAI</span>
+                <span class="hobby-card-distance">3.2 KM</span>
+              </div>
+              <div class="hobby-card-body">
+                <h3 class="hobby-card-title" data-i18n="circle_cycle_title">Sunday Sunrise Cycling &amp; Chai</h3>
+                <div class="hobby-card-meta" data-i18n="circle_cycle_meta">Sun · 6:00 AM · Gomti Riverfront</div>
+                <p class="hobby-card-desc" data-i18n="circle_cycle_desc">Calm 18km riverfront cruise followed by hot kulhad chai. Pace: Intermediate (all bicycle types welcome).</p>
+                <div class="hobby-card-footer">
+                  <span class="hobby-spots-indicator" data-i18n="circle_cycle_spots">9 Joined · 3 Spots Left</span>
+                  <button class="hobby-btn-join btn-join-circle" data-i18n="card_btn_join">Join Circle</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4: Turf Football -->
+            <div class="hobby-exhibit-card" data-category="sports">
+              <div class="hobby-card-media">
+                <img src="assets/images/football-indian.jpg" alt="Turf Football Under Lights" class="hobby-card-img">
+                <span class="hobby-card-badge-top">⚽ TURF SPORTS</span>
+                <span class="hobby-card-distance">0.8 KM</span>
+              </div>
+              <div class="hobby-card-body">
+                <h3 class="hobby-card-title" data-i18n="circle_football_title">Friday Night 5v5 Turf Football</h3>
+                <div class="hobby-card-meta" data-i18n="circle_football_meta">Fri · 7:30 PM · Campus Sports Turf</div>
+                <p class="hobby-card-desc" data-i18n="circle_football_desc">Friendly fast-paced match under floodlights. Clean game, colored bibs provided. All collegiate skill levels welcome.</p>
+                <div class="hobby-card-footer">
+                  <span class="hobby-spots-indicator" data-i18n="circle_football_spots">8 Joined · 2 Spots Left</span>
+                  <button class="hobby-btn-join btn-join-circle" data-i18n="card_btn_join">Join Circle</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 5: Book Circle -->
+            <div class="hobby-exhibit-card" data-category="books">
+              <div class="hobby-card-media">
+                <img src="assets/images/reading-indian.jpg" alt="Cafe Book Circle" class="hobby-card-img">
+                <span class="hobby-card-badge-top">📚 READING &amp; COFFEE</span>
+                <span class="hobby-card-distance">1.8 KM</span>
+              </div>
+              <div class="hobby-card-body">
+                <h3 class="hobby-card-title" data-i18n="circle_books_title">Sunday Book Circle &amp; Coffee</h3>
+                <div class="hobby-card-meta" data-i18n="circle_books_meta">Sat · 5:00 PM · Roastery Coffee House</div>
+                <p class="hobby-card-desc" data-i18n="circle_books_desc">Discussing Sci-Fi, modern Indian fiction &amp; startup essays over cold brews. Free chapter summaries provided.</p>
+                <div class="hobby-card-footer">
+                  <span class="hobby-spots-indicator" data-i18n="circle_books_spots">12 Joined · Open Circle</span>
+                  <button class="hobby-btn-join btn-join-circle" data-i18n="card_btn_join">Join Circle</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 6: Board Games -->
+            <div class="hobby-exhibit-card" data-category="crafts">
+              <div class="hobby-card-media">
+                <img src="assets/images/board-games.jpg" alt="Board Game Night" class="hobby-card-img">
+                <span class="hobby-card-badge-top">🎲 BOARD GAMES</span>
+                <span class="hobby-card-distance">1.2 KM</span>
+              </div>
+              <div class="hobby-card-body">
+                <h3 class="hobby-card-title">Indie Board Game Nights &amp; Chai</h3>
+                <div class="hobby-card-meta">Wed · 6:00 PM · The Chai Lab, Aliganj</div>
+                <p class="hobby-card-desc">Catan, Secret Hitler, and Wingspan strategy sessions. Easy rules taught in 5 mins. Relaxed, laughs guaranteed.</p>
+                <div class="hobby-card-footer">
+                  <span class="hobby-spots-indicator">8 Joined · 2 Spots Left</span>
+                  <button class="hobby-btn-join btn-join-circle" data-i18n="card_btn_join">Join Circle</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 7: Coding -->
+            <div class="hobby-exhibit-card" data-category="tech">
+              <div class="hobby-card-media">
+                <img src="assets/images/coding-indian.jpg" alt="Hackathon Sprint" class="hobby-card-img">
+                <span class="hobby-card-badge-top">💻 AI &amp; CODING</span>
+                <span class="hobby-card-distance">0.4 KM</span>
+              </div>
+              <div class="hobby-card-body">
+                <h3 class="hobby-card-title" data-i18n="circle_coding_title">Midnight AI &amp; Web3 Hack Lab</h3>
+                <div class="hobby-card-meta" data-i18n="circle_coding_meta">Sat · 10:00 PM · Campus Innovation Lab</div>
+                <p class="hobby-card-desc" data-i18n="circle_coding_desc">Collaborative coding on generative AI models, Flutter widgets, and open-source project sprints with snacks.</p>
+                <div class="hobby-card-footer">
+                  <span class="hobby-spots-indicator" data-i18n="circle_coding_spots">14 Joined · 6 Spots Left</span>
+                  <button class="hobby-btn-join btn-join-circle" data-i18n="card_btn_join">Join Circle</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 8: Fitness & Calisthenics -->
+            <div class="hobby-exhibit-card" data-category="sports">
+              <div class="hobby-card-media">
+                <img src="assets/images/fitness-indian.jpg" alt="Calisthenics workout" class="hobby-card-img">
+                <span class="hobby-card-badge-top">🏋️ CALISTHENICS</span>
+                <span class="hobby-card-distance">0.9 KM</span>
+              </div>
+              <div class="hobby-card-body">
+                <h3 class="hobby-card-title" data-i18n="circle_gym_title">Evening Calisthenics &amp; Gym Buddies</h3>
+                <div class="hobby-card-meta" data-i18n="circle_gym_meta">Daily · 7:00 PM · Campus Sports Complex</div>
+                <p class="hobby-card-desc" data-i18n="circle_gym_desc">Push/pull workout split, form spotting, and personal best tracking with campus fitness partners.</p>
+                <div class="hobby-card-footer">
+                  <span class="hobby-spots-indicator" data-i18n="circle_gym_spots">6 Joined · 4 Spots Left</span>
+                  <button class="hobby-btn-join btn-join-circle" data-i18n="card_btn_join">Join Circle</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           CHAPTER 04: THE CONNECTION (The Spark & Micro-Radius Matching)
+           ====================================================================== -->
+      <section class="story-chapter chapter-connection-section" id="chapter-connection">
+        <div class="connection-header-wrap">
+          <div class="chapter-badge chapter-badge-lavender">
+            <span>Chapter 04 · Micro-Proximity</span>
+          </div>
+          <h2 class="chapter-title-section">
+            From Two Lone Enquiries<br>
+            <span class="highlight-mint">To One Shared Circle.</span>
+          </h2>
+          <p class="chapter-lead" style="margin: 0 auto;">
+            SkillMate uses micro-proximity spatial indexing to discover peers looking for the exact same craft within minutes of your location.
+          </p>
+        </div>
+
+        <!-- Convergence Arena -->
+        <div class="convergence-arena" id="convergence-arena">
+          
+          <div class="convergence-card convergence-card-left" id="card-converge-left">
+            <div class="convergence-user-row">
+              <div class="convergence-avatar">AP</div>
+              <div>
+                <div class="convergence-user-name">Aarav Patel <span style="color:#2ca58d;">✓</span></div>
+                <div class="convergence-user-meta">2nd Yr CSE · Gomti Nagar</div>
+              </div>
+            </div>
+            <span class="convergence-craft-badge">LOOKING FOR CYCLING PARTNER</span>
+            <p class="convergence-craft-text">
+              "Up for 6:00 AM riverfront cycling runs this Sunday. Need someone to keep pace and grab kulhad chai after!"
+            </p>
+          </div>
+
+          <div class="convergence-spark-center" id="convergence-spark-center">
+            <div class="spark-icon">✨</div>
+            <div class="spark-title">Circle Formed!</div>
+            <div class="spark-sub">Sunday 6:00 AM · Riverfront (3 Joined)</div>
+          </div>
+
+          <div class="convergence-card convergence-card-right" id="card-converge-right">
+            <div class="convergence-user-row">
+              <div class="convergence-avatar" style="background:#f5a623;">RV</div>
+              <div>
+                <div class="convergence-user-name">Riya Verma <span style="color:#2ca58d;">✓</span></div>
+                <div class="convergence-user-meta">1st Yr AI/ML · Gomti Riverfront</div>
+              </div>
+            </div>
+            <span class="convergence-craft-badge" style="background:rgba(245,166,35,0.1); color:#f5a623;">WEEKEND SUNRISE RIDES</span>
+            <p class="convergence-craft-text">
+              "Have a hybrid bike sitting idle. Looking for a weekend morning crew to ride with safely along the riverfront."
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Interactive Micro-Radius Scanner Module -->
+        <div class="radar-interactive-module">
+          <div class="radar-ctrl-header">
+            <div class="radar-ctrl-title">Interactive Commute Radius Filter</div>
+            <div class="radar-val-display" id="radar-slider-display">3.0 km</div>
+          </div>
+          <input type="range" class="radar-slider-input" id="radar-range-slider" min="1" max="20" value="3" step="0.5">
+          <div class="radar-status-caption">
+            <span>📍</span>
+            <span id="radar-count-text">Within 3.0 km: 14 Active Circles · 38 Campus Peers Active Tonight</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           CHAPTER 05: THE EXPERIENCE (Sticky 4-Stage Storyteller & Prototype)
+           ====================================================================== -->
+      <section class="story-chapter chapter-experience-section" id="chapter-experience">
+        <div class="experience-layout-grid">
+          
+          <!-- Left: 4-Stage Timeline -->
+          <div class="experience-timeline-col">
+            <div>
+              <div class="chapter-badge">
+                <span>Chapter 05 · How It Works</span>
+              </div>
+              <h2 class="chapter-title-section" data-i18n="how_title">
+                From Screen to Street<br>
+                <span class="highlight-warm">In 4 Seamless Stages.</span>
+              </h2>
+              <p class="chapter-lead" data-i18n="how_sub">
+                Built for genuine real-world bonding, not endless phone addiction.
+              </p>
+            </div>
+
+            <div class="journey-stage-step active" data-stage="1">
+              <div class="stage-step-num">01</div>
+              <h3 class="stage-step-title" data-i18n="how_step1_title">1. Pick Your Craft &amp; Radius</h3>
+              <p class="stage-step-desc" data-i18n="how_step1_desc">
+                Choose from 20+ collegiate hobbies. Set your skill level (Beginner to Pro) and define your micro-radius (1 to 20 km) for easy walks or cycling.
+              </p>
+            </div>
+
+            <div class="journey-stage-step" data-stage="2">
+              <div class="stage-step-num">02</div>
+              <h3 class="stage-step-title" data-i18n="how_step2_title">2. Micro-Circle Forms (3–8 Peers)</h3>
+              <p class="stage-step-desc" data-i18n="how_step2_desc">
+                Zero swiping or resume filtering. Tap once to step into a circle. Group chat opens instantly with built-in activity context so you skip awkward icebreakers.
+              </p>
+            </div>
+
+            <div class="journey-stage-step" data-stage="3">
+              <div class="stage-step-num">03</div>
+              <h3 class="stage-step-title" data-i18n="how_step3_title">3. Meet at Vetted Public Venues</h3>
+              <p class="stage-step-desc" data-i18n="how_step3_desc">
+                Every meetup takes place in AI-vetted, well-lit public spots (CCTV-monitored campus grounds, sports turfs, and partner cafes). Verified college IDs required.
+              </p>
+            </div>
+
+            <div class="journey-stage-step" data-stage="4">
+              <div class="stage-step-num">04</div>
+              <h3 class="stage-step-title">4. Rejoin Weekly &amp; Build Traditions</h3>
+              <p class="stage-step-desc">
+                Circles persist! Rejoin your Sunday morning crew without re-applying. From first-time strangers to your dependable weekend squad.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right: Sticky Mobile Phone Prototype -->
+          <div class="experience-phone-sticky">
+            <div class="hero-phone-mockup" id="interactive-phone-mockup">
+              
+              <div class="phone-island-bar">
+                <div class="phone-island-pill"></div>
+              </div>
+
+              <div class="phone-top-bar">
+                <div class="phone-top-brand">
+                  <img src="assets/skillmate-icon.png" alt="Icon" style="width:20px; height:20px;">
+                  <span>SkillMate Feed</span>
+                </div>
+                <span class="phone-top-live">● LIVE</span>
+              </div>
+
+              <!-- Interactive Phone Navigation Tabs -->
+              <div class="phone-tab-bar">
+                <button class="phone-tab-btn active" data-phone-tab="feed">
+                  <span>🔥</span> Circles
+                </button>
+                <button class="phone-tab-btn" data-phone-tab="radar">
+                  <span>🗺️</span> Radar
+                </button>
+                <button class="phone-tab-btn" data-phone-tab="squad">
+                  <span>👥</span> Squad
+                </button>
+              </div>
+
+              <!-- Tab Pane 1: Feed (Active) -->
+              <div class="phone-inner-feed phone-tab-content active" id="phone-pane-feed">
+                <div class="phone-feed-card">
+                  <span class="phone-feed-tag">🚲 CYCLING · 3.2 KM</span>
+                  <div class="phone-feed-title" data-i18n="circle_cycle_title">Sunday Sunrise Cycling &amp; Chai</div>
+                  <div class="phone-feed-meta">Sun 6:00 AM · Gomti Riverfront</div>
+                  <button class="phone-feed-join btn-join-circle" data-i18n="card_btn_join">Join Circle</button>
+                </div>
+
+                <div class="phone-feed-card">
+                  <span class="phone-feed-tag">⚽ TURF FOOTBALL · 0.8 KM</span>
+                  <div class="phone-feed-title" data-i18n="circle_football_title">Friday Night 5v5 Turf Football</div>
+                  <div class="phone-feed-meta">Fri 7:30 PM · Campus Sports Turf</div>
+                  <button class="phone-feed-join btn-join-circle" data-i18n="card_btn_join">Join Circle</button>
+                </div>
+
+                <div class="phone-feed-card">
+                  <span class="phone-feed-tag">📚 READING · 1.8 KM</span>
+                  <div class="phone-feed-title" data-i18n="circle_books_title">Sunday Book Circle &amp; Coffee</div>
+                  <div class="phone-feed-meta">Sat 5:00 PM · Roastery Coffee</div>
+                  <button class="phone-feed-join btn-join-circle" data-i18n="card_btn_join">Join Circle</button>
+                </div>
+              </div>
+
+              <!-- Tab Pane 2: Live Radar Map View -->
+              <div class="phone-inner-feed phone-tab-content" id="phone-pane-radar">
+                <div class="phone-radar-container">
+                  <div class="radar-scan-circle"></div>
+                  <div class="radar-scan-beam"></div>
+                  <div class="radar-pin pin-1" title="Gomti Riverfront">
+                    <span class="radar-pin-icon">🚲</span>
+                    <div class="radar-pin-tooltip">Gomti Riverfront · 9 Cycling</div>
+                  </div>
+                  <div class="radar-pin pin-2" title="Campus Sports Turf">
+                    <span class="radar-pin-icon">⚽</span>
+                    <div class="radar-pin-tooltip">Campus Turf · 5v5 Match</div>
+                  </div>
+                  <div class="radar-pin pin-3" title="Roastery Coffee">
+                    <span class="radar-pin-icon">☕</span>
+                    <div class="radar-pin-tooltip">Roastery Café · Book Circle</div>
+                  </div>
+                  <div class="radar-center-user">
+                    <span class="radar-user-dot"></span>
+                    <span class="radar-user-label">YOU (Campus)</span>
+                  </div>
+                </div>
+                <div class="phone-radar-caption">
+                  <span>📍 3 Active circles within 3 km of you</span>
+                </div>
+              </div>
+
+              <!-- Tab Pane 3: My Campus Squad -->
+              <div class="phone-inner-feed phone-tab-content" id="phone-pane-squad">
+                <div class="phone-squad-list">
+                  <div class="squad-member-row">
+                    <div class="squad-avatar">KS</div>
+                    <div class="squad-info">
+                      <div class="squad-name">Kishan S. <span class="verified-tick">✓</span></div>
+                      <div class="squad-status">Hosting Cycling Circle · 6:00 AM</div>
+                    </div>
+                    <button class="squad-wave-btn">Wave 👋</button>
+                  </div>
+                  <div class="squad-member-row">
+                    <div class="squad-avatar" style="background:var(--accent-secondary);">KT</div>
+                    <div class="squad-info">
+                      <div class="squad-name">Khushhal T. <span class="verified-tick">✓</span></div>
+                      <div class="squad-status">Playing Jamming Guitar · Thu</div>
+                    </div>
+                    <button class="squad-wave-btn">Wave 👋</button>
+                  </div>
+                  <div class="squad-member-row">
+                    <div class="squad-avatar" style="background:var(--accent-tertiary);">II</div>
+                    <div class="squad-info">
+                      <div class="squad-name">Ilma I. <span class="verified-tick">✓</span></div>
+                      <div class="squad-status">Reading at Roastery · Sat</div>
+                    </div>
+                    <button class="squad-wave-btn">Wave 👋</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           CHAPTER 06: THE COMMUNITY (Voices & Campus Trust Pillars)
+           ====================================================================== -->
+      <section class="story-chapter chapter-community-section" id="chapter-community">
+        <div class="community-header-wrap">
+          <div class="chapter-badge">
+            <span data-i18n="test_badge">Chapter 06 · Campus Voices</span>
+          </div>
+          <h2 class="chapter-title-section" data-i18n="test_title">
+            Loved by Students Across Campus
+          </h2>
+          <p class="chapter-lead" style="margin: 0 auto;" data-i18n="test_sub">
+            Real stories from our Lucknow pilot members finding their crew through shared craft.
+          </p>
+        </div>
+
+        <!-- Editorial Testimonials Grid -->
+        <div class="testimonials-masonry-grid">
+          
+          <div class="testimonial-editorial-card">
+            <p class="test-card-quote" data-i18n="test_1_quote">
+              "I moved from Kanpur to Lucknow for B.Tech. For the first two months, I spent every evening in my hostel room scrolling Instagram. Through SkillMate, I found a weekend cycling circle on the Gomti Riverfront. Now we ride together every Sunday!"
+            </p>
+            <div class="test-card-author-row">
+              <div class="test-card-avatar">AP</div>
+              <div>
+                <div class="test-card-name" data-i18n="test_1_author">Aarav Patel · 2nd Year CSE</div>
+                <div class="test-card-role">BBDNITM Campus · Sunday Cycling Host</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-editorial-card">
+            <p class="test-card-quote" data-i18n="test_2_quote">
+              "The Women-Only filter gave me the confidence to attend a badminton circle near campus. Knowing everyone had verified college IDs made the entire experience super comfortable and fun."
+            </p>
+            <div class="test-card-author-row">
+              <div class="test-card-avatar" style="background:var(--accent-secondary);">RV</div>
+              <div>
+                <div class="test-card-name" data-i18n="test_2_author">Riya Verma · 1st Year AI/ML</div>
+                <div class="test-card-role">Verified Student Member · Badminton &amp; Chai</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-editorial-card">
+            <p class="test-card-quote" data-i18n="test_3_quote">
+              "Finding 10 people for turf football used to take 2 days of WhatsApp spamming. With SkillMate, Kunal set up the circle in 2 minutes and we had 10 players by sunset. It just works!"
+            </p>
+            <div class="test-card-author-row">
+              <div class="test-card-avatar" style="background:var(--accent-tertiary);">SS</div>
+              <div>
+                <div class="test-card-name" data-i18n="test_3_author">Siddharth Shukla · 3rd Year IT</div>
+                <div class="test-card-role">Turf Football Regular · Campus League</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 4 Collegiate Trust Pillars -->
+        <div class="trust-pillars-grid" id="safety">
+          
+          <div class="trust-pillar-card">
+            <div class="trust-icon-box">🛡️</div>
+            <h3 class="trust-title" data-i18n="safe_1_title">Verified Student Profiles</h3>
+            <p class="trust-desc" data-i18n="safe_1_desc">
+              Phone verification + official college email (.edu / campus ID). Mandatory selfie check before your first in-person meetup to prevent catfishing.
+            </p>
+          </div>
+
+          <div class="trust-pillar-card">
+            <div class="trust-icon-box">📍</div>
+            <h3 class="trust-title" data-i18n="safe_2_title">Public Venues Only</h3>
+            <p class="trust-desc" data-i18n="safe_2_desc">
+              The AI engine exclusively approves vetted, well-lit, CCTV-monitored public cafés, sports turfs, and campus grounds. No private or secluded spots.
+            </p>
+          </div>
+
+          <div class="trust-pillar-card">
+            <div class="trust-icon-box">🚨</div>
+            <h3 class="trust-title" data-i18n="safe_3_title">Live Location &amp; 1-Tap SOS</h3>
+            <p class="trust-desc" data-i18n="safe_3_desc">
+              Share your circle session with an external emergency contact. One-tap panic button alerts campus security and trusted contacts immediately.
+            </p>
+          </div>
+
+          <div class="trust-pillar-card">
+            <div class="trust-icon-box">👩</div>
+            <h3 class="trust-title" data-i18n="safe_4_title">Women-Only Circles</h3>
+            <p class="trust-desc" data-i18n="safe_4_desc">
+              Dedicated circles created by and restricted exclusively to verified women for total peace of mind and comfort.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           CHAPTER 07: THE INVITATION & TEAM (Cinematic Finale & Campus Hub Gate)
+           ====================================================================== -->
+      <section class="story-chapter chapter-cta-section" id="chapter-cta">
+        
+        <div class="cta-cinematic-stage">
+          <div class="cta-emblem-glow">
+            <img src="assets/skillmate-icon.png" alt="SkillMate Emblem">
+          </div>
+          <h2 class="cta-headline">
+            <span>Your weekend squad is waiting.</span><br>
+            <span class="highlight-warm">Step into your campus circle today.</span>
+          </h2>
+          <p class="cta-lead">
+            Your campus and city are full of people waiting to do what you love doing. Stop waiting for the perfect weekend. Step into your circle today.
+          </p>
+          <div class="hook-actions-row">
+            <button class="btn-cinematic-primary btn-hero-get-started" id="btn-final-cta-get-started">
+              <span data-i18n="hero_cta_get_started">Step Into Your Circle</span>
+              <span style="font-size:1.15rem;">🚀</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- FAQ Accordion -->
+        <div class="faq-story-wrapper" id="faq">
+          <div style="text-align:center; margin-bottom: 36px;">
+            <span class="chapter-badge" data-i18n="faq_badge">FAQ &amp; Guide</span>
+            <h3 class="chapter-title-section" style="font-size:2rem;" data-i18n="faq_title">Everything You Need to Know</h3>
+          </div>
+
+          <div class="faq-accordion-item open">
+            <button class="faq-accordion-btn">
+              <span data-i18n="faq_q1">Is SkillMate completely free for students?</span>
+              <span>▼</span>
+            </button>
+            <div class="faq-accordion-body" data-i18n="faq_a1">
+              Yes! Browsing, joining circles, chatting with hosts, and attending meetups is 100% free for all students. We partner with cafés and sports turfs to support the platform.
+            </div>
+          </div>
+
+          <div class="faq-accordion-item">
+            <button class="faq-accordion-btn">
+              <span data-i18n="faq_q2">How does the safety verification process work?</span>
+              <span>▼</span>
+            </button>
+            <div class="faq-accordion-body" data-i18n="faq_a2">
+              Every user verifies their phone number and college email address. Before your first in-person meetup, a quick selfie check matches your ID to prevent fake profiles or catfishing.
+            </div>
+          </div>
+
+          <div class="faq-accordion-item">
+            <button class="faq-accordion-btn">
+              <span data-i18n="faq_q3">Can I host a circle for just 2 or 3 people?</span>
+              <span>▼</span>
+            </button>
+            <div class="faq-accordion-body" data-i18n="faq_a3">
+              Absolutely! Unlike traditional event apps that require 40+ people, SkillMate is size-flexible. A coffee conversation for 2 people is just as valid as a 12-person football match.
+            </div>
+          </div>
+
+          <div class="faq-accordion-item">
+            <button class="faq-accordion-btn">
+              <span data-i18n="faq_q4">What happens if a circle member violates community guidelines?</span>
+              <span>▼</span>
+            </button>
+            <div class="faq-accordion-body" data-i18n="faq_a4">
+              Every circle member can block or report any user with one tap. Reports are reviewed by human moderators within minutes, with zero tolerance for misconduct.
+            </div>
+          </div>
+        </div>
+
+        <!-- About SkillMate & Founding Team -->
+        <div style="margin-top: 60px;" id="about"><span id="team"></span>
+          <div style="text-align:center; margin-bottom: 36px;">
+            <span class="chapter-badge" data-i18n="team_badge">THE FOUNDERS</span>
+            <h3 class="chapter-title-section" style="font-size:2rem;" data-i18n="team_title">Crafted by the Student Founders</h3>
+            <p style="color:var(--text-muted); font-size:0.95rem;" data-i18n="team_sub">Student Builders &amp; Campus Community Architects · Lucknow &amp; Beyond</p>
+          </div>
+
+          <div class="team-grid-5">
+            <div class="team-card-3d">
+              <div class="team-avatar-wrap">KS</div>
+              <h4 class="team-name">Kishan Shrivastava</h4>
+              <span class="team-role-pill">Product &amp; UI/UX</span>
+              <p class="team-bio">Calm pastel design system, mobile prototypes, and accessible interaction flows.</p>
+            </div>
+            <div class="team-card-3d">
+              <div class="team-avatar-wrap">KT</div>
+              <h4 class="team-name">Khushhal Tahalani</h4>
+              <span class="team-role-pill">Research &amp; Safety</span>
+              <p class="team-bio">Campus student surveys, community gap analysis, and collegiate safety guardrails.</p>
+            </div>
+            <div class="team-card-3d">
+              <div class="team-avatar-wrap">II</div>
+              <h4 class="team-name">Ilma Islam</h4>
+              <span class="team-role-pill">AI &amp; Algorithms</span>
+              <p class="team-bio">Multi-signal passion matching engine, compatibility scoring, and venue vetting.</p>
+            </div>
+            <div class="team-card-3d">
+              <div class="team-avatar-wrap">KK</div>
+              <h4 class="team-name">Karunesh Kumar</h4>
+              <span class="team-role-pill">Backend &amp; Cloud</span>
+              <p class="team-bio">Firebase live real-time sync, geo-distance spatial indexing, and auth pipeline.</p>
+            </div>
+            <div class="team-card-3d">
+              <div class="team-avatar-wrap">KS</div>
+              <h4 class="team-name">Kunal Singh</h4>
+              <span class="team-role-pill">Frontend &amp; Integration</span>
+              <p class="team-bio">Flutter app UI widgets, interactive map view, and client state orchestration.</p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- Marketing Product Footer -->
+    <footer class="site-footer">
+    <div class="footer-inner">
+      
+      <!-- Brand & Mission Column -->
+      <div class="footer-col">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <img src="assets/skillmate-icon.png" alt="SkillMate" style="width:30px; height:30px; object-fit:contain;">
+          <span style="font-family:var(--font-display); font-size:1.2rem; font-weight:800;">SkillMate</span>
+        </div>
+        <p style="font-size:0.86rem; color:var(--text-muted); line-height:1.6;" data-i18n="footer_tagline">
+          Share Skills. Find People. Do More.
+        </p>
+
+        <div class="newsletter-box">
+          <input type="email" class="newsletter-input" placeholder="Enter college email..." data-i18n="footer_newsletter_ph">
+          <button class="newsletter-btn" data-i18n="footer_newsletter_btn">Subscribe</button>
+        </div>
+      </div>
+
+      <!-- Links Column 1: Product -->
+      <div class="footer-col">
+        <h4 class="footer-col-title" data-i18n="footer_col_product">Product</h4>
+        <ul class="footer-links-list">
+          <li><a href="#explore" class="footer-link" data-i18n="nav_explore">Explore Circles</a></li>
+          <li><a href="#how" class="footer-link" data-i18n="nav_how">How It Works</a></li>
+        </ul>
+      </div>
+
+      <!-- Links Column 2: Safety & Trust -->
+      <div class="footer-col">
+        <h4 class="footer-col-title" data-i18n="footer_col_safety">Safety &amp; Trust</h4>
+        <ul class="footer-links-list">
+          <li><a href="#safety" class="footer-link" data-i18n="safe_1_title">Verified Student Profiles</a></li>
+          <li><a href="#safety" class="footer-link" data-i18n="safe_2_title">Public Venues Only</a></li>
+          <li><a href="#safety" class="footer-link" data-i18n="safe_4_title">Women-Only Circles</a></li>
+        </ul>
+      </div>
+
+      <!-- Links Column 3: Campus Hub -->
+      <div class="footer-col">
+        <h4 class="footer-col-title" data-i18n="footer_col_campus">Campus Hub</h4>
+        <ul class="footer-links-list">
+          <li><span class="footer-link">Campus Hub, Lucknow</span></li>
+          <li><span class="footer-link">Gomti Riverfront Zone</span></li>
+          <li><a href="#team" class="footer-link" data-i18n="nav_team">Founding Student Team</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom Copyright & Architecture -->
+    <div class="footer-bottom">
+      <p data-i18n="footer_rights">© 2026 SkillMate · Student Community Network. All rights reserved.</p>
+      <p style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-dim);">The authentic collegiate third place for shared crafts and real-world meetups.</p>
+    </div>
+  </footer>
+
+  
+  </div> <!-- /#view-public-landing -->
+
+  <!-- ========================================================================
+       AUTHENTICATED STUDENT WEB APP (SHOWN AFTER SIGN IN)
+       Strictly only: Create Circle, Join Circle, Find Locations (AI), Chat, Upload Memories
+       NO "how the app works", NO "team members", etc.
+       ======================================================================== -->
+  <div id="view-student-app" style="display:none;">
+    <header class="student-app-header">
+      <div class="student-app-nav-container">
+        <div class="student-app-brand" id="student-app-brand-btn" title="SkillMate Campus Hub">
+          <div class="student-brand-emblem-wrap">
+            <img src="assets/skillmate-icon.png" alt="SkillMate" class="student-brand-emblem">
+          </div>
+          <div>
+            <span class="student-app-title">SkillMate</span>
+            <span class="student-app-sub">Campus Hub</span>
+          </div>
+        </div>
+
+        <!-- 4 Core Feature Tabs ONLY -->
+        <nav class="student-app-tabs">
+          <button class="student-tab-btn active" data-app-tab="create-circle">
+            <span>➕</span> Create Circle
+          </button>
+          <button class="student-tab-btn" data-app-tab="join-circle">
+            <span>🧭</span> Join a Circle
+          </button>
+          <button class="student-tab-btn" data-app-tab="chat">
+            <span>💬</span> Group Chat
+          </button>
+          <button class="student-tab-btn" data-app-tab="memories">
+            <span>📸</span> Upload Memories
+          </button>
+        </nav>
+
+        <!-- Student Profile, Controls & Sign Out -->
+        <div class="student-app-user">
+          <!-- Student Theme & Language Quick Controls -->
+          <div class="student-quick-controls">
+            <!-- Theme Toggle -->
+            <div style="position:relative;">
+              <button class="student-ctrl-btn" id="student-theme-btn" title="Visual Theme">
+                <span>🎨</span>
+                <span class="ctrl-btn-label">Theme</span>
+              </button>
+              <div class="dropdown-panel student-dropdown" id="student-theme-panel" data-lenis-prevent="true" data-lenis-prevent-wheel="true" data-lenis-prevent-touch="true">
+                <div class="panel-header">Select Visual Theme</div>
+                <div class="theme-options-list">
+                  <button class="theme-btn active" data-theme-choice="skillmate-calm">
+                    <span>🌸 SkillMate Dawn (PPT Calm)</span>
+                    <div class="theme-swatch"><span class="swatch-dot" style="background:#2ca58d;"></span><span class="swatch-dot" style="background:#8367c7;"></span></div>
+                  </button>
+                  <button class="theme-btn" data-theme-choice="calm-midnight">
+                    <span>🌌 Calm Midnight (Dark)</span>
+                    <div class="theme-swatch"><span class="swatch-dot" style="background:#0b0f19;"></span><span class="swatch-dot" style="background:#2ca58d;"></span></div>
+                  </button>
+                  <button class="theme-btn" data-theme-choice="matcha-sage">
+                    <span>🍃 Matcha Sage</span>
+                    <div class="theme-swatch"><span class="swatch-dot" style="background:#3b8a6e;"></span><span class="swatch-dot" style="background:#5c7f67;"></span></div>
+                  </button>
+                  <button class="theme-btn" data-theme-choice="cozy-sunset">
+                    <span>🌅 Cozy Sunset</span>
+                    <div class="theme-swatch"><span class="swatch-dot" style="background:#e06d53;"></span><span class="swatch-dot" style="background:#8e65a6;"></span></div>
+                  </button>
+                  <button class="theme-btn" data-theme-choice="nordic-blue">
+                    <span>❄️ Nordic Blue</span>
+                    <div class="theme-swatch"><span class="swatch-dot" style="background:#38bdf8;"></span><span class="swatch-dot" style="background:#818cf8;"></span></div>
+                  </button>
+                  <button class="theme-btn" data-theme-choice="warm-mocha">
+                    <span>☕ Warm Mocha</span>
+                    <div class="theme-swatch"><span class="swatch-dot" style="background:#8c5b3f;"></span><span class="swatch-dot" style="background:#bf8b67;"></span></div>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Language Toggle -->
+            <div style="position:relative;">
+              <button class="student-ctrl-btn" id="student-lang-btn" title="Choose Language">
+                <span>🌐</span>
+                <span class="ctrl-btn-label" id="student-lang-label">Lang</span>
+              </button>
+              <div class="dropdown-panel student-dropdown" id="student-lang-panel" data-lenis-prevent="true" data-lenis-prevent-wheel="true" data-lenis-prevent-touch="true">
+                <div class="panel-header">Choose Language / भाषा चुनें</div>
+                <div class="lang-grid">
+                  <button class="lang-option active" data-lang="en"><span class="lang-native">English</span><span class="lang-eng">Default</span></button>
+                  <button class="lang-option" data-lang="hi"><span class="lang-native">हिंदी</span><span class="lang-eng">Hindi</span></button>
+                  <button class="lang-option" data-lang="hinglish"><span class="lang-native">Hinglish</span><span class="lang-eng">Gen Z</span></button>
+                  <button class="lang-option" data-lang="bn"><span class="lang-native">বাংলা</span><span class="lang-eng">Bengali</span></button>
+                  <button class="lang-option" data-lang="mr"><span class="lang-native">मराठी</span><span class="lang-eng">Marathi</span></button>
+                  <button class="lang-option" data-lang="ta"><span class="lang-native">தமிழ்</span><span class="lang-eng">Tamil</span></button>
+                  <button class="lang-option" data-lang="te"><span class="lang-native">తెలుగు</span><span class="lang-eng">Telugu</span></button>
+                  <button class="lang-option" data-lang="kn"><span class="lang-native">ಕನ್ನಡ</span><span class="lang-eng">Kannada</span></button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ambient Music Toggle -->
+            <button class="student-ctrl-btn active playing" id="student-music-btn" title="Ambient Music">
+              <span class="music-eq-icon"><span class="eq-bar eq-1"></span><span class="eq-bar eq-2"></span><span class="eq-bar eq-3"></span></span>
+            </button>
+          </div>
+
+          <div class="student-profile-group">
+            <div class="student-profile-pill" id="btn-profile-pill" title="View your campus profile">
+              <div class="student-avatar" id="app-user-avatar">KS</div>
+              <div class="student-info">
+                <strong id="app-user-name">Kishan Shrivastava</strong>
+                <small id="app-user-role">Verified Student ✓</small>
+              </div>
+            </div>
+            <button type="button" class="btn-edit-profile-trigger" id="btn-open-edit-profile" title="Edit Profile Details">
+              <span>✏️</span>
+              <span class="btn-edit-text">Edit</span>
+            </button>
+          </div>
+          <button class="btn-student-logout" id="btn-student-logout" title="Sign out to public site">
+            <span>🚪</span>
+            <span>Sign Out</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="student-app-main">
+      <!-- Tab 1: Create Circle -->
+      <div id="app-tab-create-circle" class="student-tab-pane active">
+        <section class="section-wrapper portal-section-view">
+          <div class="section-header">
+            <span class="section-badge">COMMUNITY BUILDER STUDIO</span>
+            <h2 class="section-title">Launch a New Hobby Circle</h2>
+            <p class="section-subtitle">
+              Gather your campus squad in under 2 minutes. Fill in details and see your live card preview update in real time.
+            </p>
+          </div>
+
+          <div class="create-circle-grid-layout">
+            <!-- Left: Builder Form (Progressive Disclosure) -->
+            <div class="create-form-card">
+              <div class="studio-wizard-container">
+                <!-- Progress Header -->
+                <div class="progressive-stepper-header" style="margin-bottom:22px;">
+                  <div class="stepper-meta-row">
+                    <span class="stepper-step-indicator" id="studio-step-indicator">STAGE 1 OF 4</span>
+                    <span class="stepper-pct-indicator" id="studio-pct-indicator">25% (Circle Identity)</span>
+                  </div>
+                  <div class="stepper-progress-track">
+                    <div class="stepper-progress-fill" id="studio-progress-bar" style="width: 25%;"></div>
+                  </div>
+                  <div class="stepper-dots-row">
+                    <button type="button" class="stepper-dot active" data-studio-step="1">
+                      <span class="dot-num">1</span>
+                      <span class="dot-label">Category</span>
+                    </button>
+                    <button type="button" class="stepper-dot" data-studio-step="2">
+                      <span class="dot-num">2</span>
+                      <span class="dot-label">Time &amp; Venue</span>
+                    </button>
+                    <button type="button" class="stepper-dot" data-studio-step="3">
+                      <span class="dot-num">3</span>
+                      <span class="dot-label">Squad &amp; Rules</span>
+                    </button>
+                    <button type="button" class="stepper-dot" data-studio-step="4">
+                      <span class="dot-num">4</span>
+                      <span class="dot-label">Publish</span>
+                    </button>
+                  </div>
+                </div>
+
+                <form id="studio-create-form">
+                  <!-- STAGE 1: Circle Identity (Category & Title) -->
+                  <div class="studio-stage-panel active" id="studio-stage-1">
+                    <div class="stage-title-block">
+                      <h3 class="stage-title">What circle are you starting?</h3>
+                      <p class="stage-explanation">Select your hobby category and give your circle an inviting title.</p>
+                    </div>
+
+                    <div class="form-field-block">
+                      <label class="form-label-hierarchical primary-label">Choose Hobby Category:</label>
+                      <div class="category-cards-grid" id="studio-category-cards">
+                        <div class="cat-select-card active" data-cat-val="outdoors">
+                          <span class="cat-card-icon">🚲</span>
+                          <strong class="cat-card-title">Cycling &amp; Outdoors</strong>
+                          <small class="cat-card-sub">Morning rides &amp; chai loops</small>
+                        </div>
+                        <div class="cat-select-card" data-cat-val="sports">
+                          <span class="cat-card-icon">⚽</span>
+                          <strong class="cat-card-title">Sports &amp; Turf</strong>
+                          <small class="cat-card-sub">5v5 football, badminton</small>
+                        </div>
+                        <div class="cat-select-card" data-cat-val="reading">
+                          <span class="cat-card-icon">📚</span>
+                          <strong class="cat-card-title">Reading &amp; Coffee</strong>
+                          <small class="cat-card-sub">Book circles &amp; cafe chats</small>
+                        </div>
+                        <div class="cat-select-card" data-cat-val="music">
+                          <span class="cat-card-icon">🎸</span>
+                          <strong class="cat-card-title">Acoustic Jamming</strong>
+                          <small class="cat-card-sub">Amphitheater &amp; vocals</small>
+                        </div>
+                        <div class="cat-select-card" data-cat-val="tech">
+                          <span class="cat-card-icon">💻</span>
+                          <strong class="cat-card-title">AI &amp; Hackathons</strong>
+                          <small class="cat-card-sub">Coding sprints &amp; labs</small>
+                        </div>
+                        <div class="cat-select-card" data-cat-val="fitness">
+                          <span class="cat-card-icon">🏋️</span>
+                          <strong class="cat-card-title">Gym &amp; Calisthenics</strong>
+                          <small class="cat-card-sub">Workouts &amp; track runs</small>
+                        </div>
+                      </div>
+                      <!-- Kept for programmatic value syncing -->
+                      <select class="form-select" id="studio-circle-cat" style="display:none;">
+                        <option value="outdoors">🚲 Cycling &amp; Outdoors</option>
+                        <option value="sports">⚽ Sports &amp; Turf</option>
+                        <option value="reading">📚 Reading &amp; Coffee</option>
+                        <option value="music">🎸 Acoustic Jamming</option>
+                        <option value="tech">💻 AI &amp; Hackathons</option>
+                        <option value="fitness">🏋️ Gym &amp; Calisthenics</option>
+                      </select>
+                    </div>
+
+                    <div class="form-field-block">
+                      <label class="form-label-hierarchical primary-label" for="studio-circle-name">Circle Title</label>
+                      <div class="input-focus-container">
+                        <span class="field-icon">✨</span>
+                        <input type="text" class="input-large-spacious" id="studio-circle-name" placeholder="e.g. Sunday Sunrise Cycling & Chai" required>
+                      </div>
+                    </div>
+
+                    <div class="wizard-nav-actions">
+                      <div></div>
+                      <button type="button" class="btn-primary-action btn-wizard-continue" id="btn-studio-step1-next">
+                        <span>Next: Pick Venue &amp; Time</span>
+                        <span class="btn-action-arrow">→</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- STAGE 2: Time & Venue -->
+                  <div class="studio-stage-panel" id="studio-stage-2" style="display:none;">
+                    <div class="stage-title-block">
+                      <h3 class="stage-title">When &amp; where will the squad meet?</h3>
+                      <p class="stage-explanation">Pick a safe public campus location and schedule.</p>
+                    </div>
+
+                    <div class="form-field-block">
+                      <label class="form-label-hierarchical primary-label" for="studio-circle-time">Date &amp; Time Schedule</label>
+                      <div class="input-focus-container">
+                        <span class="field-icon">📅</span>
+                        <input type="text" class="input-large-spacious" id="studio-circle-time" placeholder="e.g. Sunday 6:00 AM" required>
+                      </div>
+                    </div>
+
+                    <div class="form-field-block">
+                      <div class="field-label-split">
+                        <label class="form-label-hierarchical primary-label" for="studio-circle-venue">Public Vetted Venue</label>
+                        <button type="button" class="btn-ai-place-suggest" id="btn-suggest-places">
+                          <span>🤖 AI Safe Suggestions</span>
+                          <span class="sparkle-anim">✨</span>
+                        </button>
+                      </div>
+                      <div class="input-focus-container">
+                        <span class="field-icon">📍</span>
+                        <input type="text" class="input-large-spacious" id="studio-circle-venue" placeholder="e.g. Gomti Riverfront Dedicated Cycle Track" required>
+                      </div>
+
+                      <!-- Inline Collapsible AI Venue Recommendation Drawer -->
+                      <div class="ai-venue-drawer" id="ai-venue-drawer" style="display:none; margin-top:14px;">
+                        <div class="ai-drawer-header">
+                          <div class="ai-drawer-title-group">
+                            <span class="pulse-beacon"></span>
+                            <strong>AI Safe Campus Recommendations</strong>
+                            <span class="ai-filter-pill">🚲 Dedicated Safe Cycling Tracks</span>
+                          </div>
+                          <button type="button" class="btn-close-ai-drawer" id="btn-close-ai-drawer">&times;</button>
+                        </div>
+                        <div class="ai-quick-places-grid">
+                          <!-- Populated dynamically via AI Safety Catalog -->
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="wizard-nav-actions">
+                      <button type="button" class="btn-secondary-action btn-wizard-back" id="btn-studio-step2-back">
+                        <span>← Back</span>
+                      </button>
+                      <button type="button" class="btn-primary-action btn-wizard-continue" id="btn-studio-step2-next">
+                        <span>Next: Squad Preferences</span>
+                        <span class="btn-action-arrow">→</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- STAGE 3: Squad Preferences & Details -->
+                  <div class="studio-stage-panel" id="studio-stage-3" style="display:none;">
+                    <div class="stage-title-block">
+                      <h3 class="stage-title">Squad size &amp; community rules</h3>
+                      <p class="stage-explanation">Set circle capacity, safety preferences, and what peers should bring.</p>
+                    </div>
+
+                    <div class="form-row-responsive">
+                      <div class="form-field-block">
+                        <label class="form-label-hierarchical primary-label" for="studio-circle-cap">Max Squad Capacity</label>
+                        <div class="input-focus-container">
+                          <span class="field-icon">👥</span>
+                          <input type="number" class="input-large-spacious" id="studio-circle-cap" value="12" min="2" max="50">
+                        </div>
+                        <small class="field-hint-tertiary">Recommended: 8–16 students for optimal safety &amp; camaraderie.</small>
+                      </div>
+
+                      <div class="form-field-block">
+                        <label class="form-label-hierarchical primary-label">Safety Filter</label>
+                        <div class="women-only-toggle-card">
+                          <input type="checkbox" id="studio-circle-women-only" style="width:20px; height:20px; cursor:pointer;">
+                          <label for="studio-circle-women-only" style="cursor:pointer; font-size:0.88rem; font-weight:700;">
+                            🛡️ Women-Only Circle
+                          </label>
+                        </div>
+                        <small class="field-hint-tertiary">Enforces verified female student member access.</small>
+                      </div>
+                    </div>
+
+                    <div class="form-field-block">
+                      <label class="form-label-hierarchical primary-label" for="studio-circle-desc">Circle Description</label>
+                      <textarea class="input-large-spacious input-textarea-clean" id="studio-circle-desc" rows="3" placeholder="What will the circle do? Mention pace, what to bring, and expectations..." required></textarea>
+                    </div>
+
+                    <div class="form-field-block">
+                      <label class="form-label-hierarchical primary-label" for="studio-circle-img-select">Cover Photo Preset</label>
+                      <select class="form-select input-large-spacious" id="studio-circle-img-select">
+                        <option value="assets/images/cycling-indian.jpg">🚲 Group Cycling at Sunrise</option>
+                        <option value="assets/images/football-indian.jpg">⚽ Floodlit Turf Football</option>
+                        <option value="assets/images/reading-indian.jpg">📚 Coffee &amp; Book Circle</option>
+                        <option value="assets/images/music-indian.jpg">🎸 Acoustic Music Jam</option>
+                        <option value="assets/images/coding-indian.jpg">💻 AI &amp; Hackathon Lab</option>
+                        <option value="assets/images/fitness-indian.jpg">🏋️ Gym &amp; Calisthenics</option>
+                      </select>
+                    </div>
+
+                    <div class="wizard-nav-actions">
+                      <button type="button" class="btn-secondary-action btn-wizard-back" id="btn-studio-step3-back">
+                        <span>← Back</span>
+                      </button>
+                      <button type="button" class="btn-primary-action btn-wizard-continue" id="btn-studio-step3-next">
+                        <span>Next: Review &amp; Launch</span>
+                        <span class="btn-action-arrow">→</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- STAGE 4: Confirmation & Launch -->
+                  <div class="studio-stage-panel" id="studio-stage-4" style="display:none;">
+                    <div class="stage-title-block">
+                      <h3 class="stage-title">Review &amp; publish your circle</h3>
+                      <p class="stage-explanation">Your circle is ready to be published to the campus activity feed.</p>
+                    </div>
+
+                    <div class="stage-preview-callout">
+                      <div class="preview-badge-status">READY TO PUBLISH ✓</div>
+                      <p style="font-size:0.86rem; color:var(--text-muted); margin:6px 0 0;">Check your live card preview on the side. Once published, students can discover and join your squad.</p>
+                    </div>
+
+                    <div class="wizard-nav-actions">
+                      <button type="button" class="btn-secondary-action btn-wizard-back" id="btn-studio-step4-back">
+                        <span>← Back to Edit</span>
+                      </button>
+                      <button type="submit" class="studio-publish-btn" style="margin-top:0;">
+                        <span>Publish Circle to Campus Feed 🚀</span>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- Right: Real-time Live Card Preview -->
+            <div class="create-preview-column">
+              <span class="preview-column-label">LIVE CARD PREVIEW</span>
+              <div class="circle-card" id="studio-live-card-preview" style="max-width:380px;">
+                <div class="card-media-wrap">
+                  <img id="preview-card-img" src="assets/images/cycling-indian.jpg" alt="Preview" class="circle-card-thumb">
+                  <div class="card-hover-action-overlay">
+                    <span class="preview-pill">Quick Intel 👁️</span>
+                  </div>
+                </div>
+                <div class="circle-card-body">
+                  <div class="circle-tag-row">
+                    <span class="craft-tag" id="preview-card-tag">🚲 CYCLING</span>
+                    <span class="spots-badge" id="preview-card-spots">Just Created · 12 Spots Left</span>
+                  </div>
+                  <h4 class="circle-card-title" id="preview-card-title">Sunday Sunrise Cycling &amp; Chai</h4>
+                  <div class="circle-card-meta" id="preview-card-meta">Sun · 6:00 AM · Gomti Riverfront Promenade</div>
+                  <p class="circle-card-desc" id="preview-card-desc">Calm riverfront cruise followed by kulhad chai. All bikes and paces welcome.</p>
+                  <div class="circle-card-footer">
+                    <div class="host-info">
+                      <div class="host-avatar" id="preview-card-avatar">YOU</div>
+                      <span id="preview-card-host">Hosted by You (Verified)</span>
+                    </div>
+                    <button class="btn-join-circle joined">Joined! ✓</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Tab 2: Join a Circle -->
+      <div id="app-tab-join-circle" class="student-tab-pane" style="display:none;">
+        <!-- ========================================================================
+         EXPLORE CIRCLES HUB (REAL CONSUMER PRODUCT FEED WITH FILTERING)
+         ======================================================================== -->
+    <section class="section-wrapper" id="explore">
+      <div class="section-header">
+        <span class="section-badge" data-i18n="explore_badge">REAL CIRCLES HAPPENING THIS WEEK</span>
+        <h2 class="section-title" data-i18n="explore_title">Discover What's On Near You</h2>
+        <p class="section-subtitle" data-i18n="explore_sub">
+          Filter by craft, distance, and skill level. Zero swiping, no job interviews—just show up and enjoy.
+        </p>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="category-filter-bar">
+        <button class="cat-pill-btn active" data-cat="all" data-i18n="filter_all">All Crafts</button>
+        <button class="cat-pill-btn" data-cat="sports" data-i18n="filter_sports">⚽ Sports &amp; Turf</button>
+        <button class="cat-pill-btn" data-cat="outdoors" data-i18n="filter_outdoors">🚲 Cycling &amp; Outdoor</button>
+        <button class="cat-pill-btn" data-cat="reading" data-i18n="filter_reading">📚 Reading &amp; Coffee</button>
+        <button class="cat-pill-btn" data-cat="music" data-i18n="filter_music">🎸 Acoustic Jamming</button>
+        <button class="cat-pill-btn" data-cat="tech" data-i18n="filter_tech">💻 AI &amp; Coding</button>
+        <button class="cat-pill-btn" data-cat="fitness" data-i18n="filter_fitness">🏋️ Gym &amp; Calisthenics</button>
+      </div>
+
+      <!-- Real Dynamic Circles Grid -->
+      <div class="circles-grid" id="circles-grid">
+        
+        <!-- Card 1: Cycling -->
+        <div class="circle-card" data-category="outdoors" data-circle-id="cycling"
+             data-circle-title="Sunday Sunrise Cycling &amp; Chai"
+             data-circle-category="🚲 CYCLING"
+             data-circle-meta="Sun · 6:00 AM · Gomti Riverfront (3.2 km)"
+             data-circle-desc="Calm 18km riverfront cruise followed by kulhad chai. Pace: Intermediate (all bikes welcome)."
+             data-circle-img="assets/images/cycling-indian.jpg"
+             data-circle-venue="Gomti Riverfront, Lucknow"
+             data-circle-host="Kishan S. (Founding Member)">
+          <div class="card-media-wrap">
+            <img src="assets/images/cycling-indian.jpg" alt="Cycling" class="circle-card-thumb" loading="lazy">
+            <div class="card-hover-action-overlay">
+              <span class="preview-pill">Quick Intel 👁️</span>
+            </div>
+          </div>
+          <div class="circle-card-body">
+            <div class="circle-tag-row">
+              <span class="craft-tag">🚲 CYCLING</span>
+              <span class="spots-badge" data-i18n="circle_cycle_spots">9 Joined · 3 Spots Left</span>
+            </div>
+            <h4 class="circle-card-title" data-i18n="circle_cycle_title">Sunday Sunrise Cycling &amp; Chai</h4>
+            <div class="circle-card-meta" data-i18n="circle_cycle_meta">Sun · 6:00 AM · Gomti Riverfront (3.2 km)</div>
+            <p class="circle-card-desc" data-i18n="circle_cycle_desc">Calm 18km riverfront cruise followed by kulhad chai. Pace: Intermediate (all bikes welcome).</p>
+            <div class="circle-card-footer">
+              <div class="host-info">
+                <div class="host-avatar">KS</div>
+                <span data-i18n="circle_cycle_host">Hosted by Kishan S. (Founding Host)</span>
+              </div>
+              <button class="btn-join-circle" data-i18n="card_btn_join">Join Circle</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Turf Football -->
+        <div class="circle-card" data-category="sports" data-circle-id="football"
+             data-circle-title="Friday Night 5v5 Turf Football"
+             data-circle-category="⚽ TURF SPORTS"
+             data-circle-meta="Fri · 7:30 PM · Campus Sports Turf (0.8 km)"
+             data-circle-desc="Friendly fast-paced match under floodlights. Clean game, bibs provided. All skill levels welcome."
+             data-circle-img="assets/images/football-indian.jpg"
+             data-circle-venue="Campus Sports Turf, Lucknow"
+             data-circle-host="Kunal S. (Verified)">
+          <div class="card-media-wrap">
+            <img src="assets/images/football-indian.jpg" alt="Football" class="circle-card-thumb" loading="lazy">
+            <div class="card-hover-action-overlay">
+              <span class="preview-pill">Quick Intel 👁️</span>
+            </div>
+          </div>
+          <div class="circle-card-body">
+            <div class="circle-tag-row">
+              <span class="craft-tag">⚽ TURF SPORTS</span>
+              <span class="spots-badge" data-i18n="circle_football_spots">8 Joined · 2 Spots Left</span>
+            </div>
+            <h4 class="circle-card-title" data-i18n="circle_football_title">Friday Night 5v5 Turf Football</h4>
+            <div class="circle-card-meta" data-i18n="circle_football_meta">Fri · 7:30 PM · Campus Sports Turf (0.8 km)</div>
+            <p class="circle-card-desc" data-i18n="circle_football_desc">Friendly fast-paced match under floodlights. Clean game, bibs provided. All skill levels welcome.</p>
+            <div class="circle-card-footer">
+              <div class="host-info">
+                <div class="host-avatar">KS</div>
+                <span data-i18n="circle_football_host">Hosted by Kunal S. (Verified)</span>
+              </div>
+              <button class="btn-join-circle" data-i18n="card_btn_join">Join Circle</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Books & Coffee -->
+        <div class="circle-card" data-category="reading" data-circle-id="reading"
+             data-circle-title="Sunday Book Circle &amp; Coffee"
+             data-circle-category="📚 READING"
+             data-circle-meta="Sat · 5:00 PM · Roastery Coffee House (1.8 km)"
+             data-circle-desc="Discussing Sci-Fi, philosophy &amp; startup essays over cold brews. Free chapter summaries provided."
+             data-circle-img="assets/images/reading-indian.jpg"
+             data-circle-venue="Roastery Coffee House, Lucknow"
+             data-circle-host="Ilma I. (AI/ML)">
+          <div class="card-media-wrap">
+            <img src="assets/images/reading-indian.jpg" alt="Books" class="circle-card-thumb" loading="lazy">
+            <div class="card-hover-action-overlay">
+              <span class="preview-pill">Quick Intel 👁️</span>
+            </div>
+          </div>
+          <div class="circle-card-body">
+            <div class="circle-tag-row">
+              <span class="craft-tag">📚 READING</span>
+              <span class="spots-badge" data-i18n="circle_books_spots">12 Joined · Open Circle</span>
+            </div>
+            <h4 class="circle-card-title" data-i18n="circle_books_title">Sunday Book Circle &amp; Coffee</h4>
+            <div class="circle-card-meta" data-i18n="circle_books_meta">Sat · 5:00 PM · Roastery Coffee House (1.8 km)</div>
+            <p class="circle-card-desc" data-i18n="circle_books_desc">Discussing Sci-Fi, philosophy &amp; startup essays over cold brews. Free chapter summaries provided.</p>
+            <div class="circle-card-footer">
+              <div class="host-info">
+                <div class="host-avatar">II</div>
+                <span data-i18n="circle_books_host">Hosted by Ilma I. (AI/ML)</span>
+              </div>
+              <button class="btn-join-circle" data-i18n="card_btn_join">Join Circle</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Gym & Calisthenics -->
+        <div class="circle-card" data-category="fitness" data-circle-id="fitness"
+             data-circle-title="Evening Calisthenics &amp; Gym Buddies"
+             data-circle-category="🏋️ FITNESS"
+             data-circle-meta="Daily · 7:00 PM · Campus Sports Complex (0.9 km)"
+             data-circle-desc="Push/pull workout split, form spotting, and personal best tracking with campus fitness partners."
+             data-circle-img="assets/images/fitness-indian.jpg"
+             data-circle-venue="Campus Sports Complex, Lucknow"
+             data-circle-host="Karunesh K. (Verified)">
+          <div class="card-media-wrap">
+            <img src="assets/images/fitness-indian.jpg" alt="Gym" class="circle-card-thumb" loading="lazy">
+            <div class="card-hover-action-overlay">
+              <span class="preview-pill">Quick Intel 👁️</span>
+            </div>
+          </div>
+          <div class="circle-card-body">
+            <div class="circle-tag-row">
+              <span class="craft-tag">🏋️ FITNESS</span>
+              <span class="spots-badge" data-i18n="circle_gym_spots">6 Joined · 4 Spots Left</span>
+            </div>
+            <h4 class="circle-card-title" data-i18n="circle_gym_title">Evening Calisthenics &amp; Gym Buddies</h4>
+            <div class="circle-card-meta" data-i18n="circle_gym_meta">Daily · 7:00 PM · Campus Sports Complex (0.9 km)</div>
+            <p class="circle-card-desc" data-i18n="circle_gym_desc">Push/pull workout split, form spotting, and personal best tracking with campus fitness partners.</p>
+            <div class="circle-card-footer">
+              <div class="host-info">
+                <div class="host-avatar">KK</div>
+                <span data-i18n="circle_gym_host">Hosted by Karunesh K. (Verified)</span>
+              </div>
+              <button class="btn-join-circle" data-i18n="card_btn_join">Join Circle</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: Acoustic Jamming -->
+        <div class="circle-card" data-category="music" data-circle-id="music"
+             data-circle-title="Acoustic Jamming &amp; Vocal Circle"
+             data-circle-category="🎸 MUSIC"
+             data-circle-meta="Thu · 6:30 PM · Campus Amphitheater (0.5 km)"
+             data-circle-desc="Open guitarists, vocalists, and percussionists circle. Acoustic vibes, Bollywood &amp; Indie classics."
+             data-circle-img="assets/images/music-indian.jpg"
+             data-circle-venue="Campus Amphitheater, Lucknow"
+             data-circle-host="Khushhal T. (Research)">
+          <div class="card-media-wrap">
+            <img src="assets/images/music-indian.jpg" alt="Acoustic Music" class="circle-card-thumb" loading="lazy">
+            <div class="card-hover-action-overlay">
+              <span class="preview-pill">Quick Intel 👁️</span>
+            </div>
+          </div>
+          <div class="circle-card-body">
+            <div class="circle-tag-row">
+              <span class="craft-tag">🎸 MUSIC</span>
+              <span class="spots-badge" data-i18n="circle_music_spots">7 Joined · Open Circle</span>
+            </div>
+            <h4 class="circle-card-title" data-i18n="circle_music_title">Acoustic Jamming &amp; Vocal Circle</h4>
+            <div class="circle-card-meta" data-i18n="circle_music_meta">Thu · 6:30 PM · Campus Amphitheater (0.5 km)</div>
+            <p class="circle-card-desc" data-i18n="circle_music_desc">Open guitarists, vocalists, and percussionists circle. Acoustic vibes, Bollywood &amp; Indie classics.</p>
+            <div class="circle-card-footer">
+              <div class="host-info">
+                <div class="host-avatar">KT</div>
+                <span data-i18n="circle_music_host">Hosted by Khushhal T. (Research)</span>
+              </div>
+              <button class="btn-join-circle" data-i18n="card_btn_join">Join Circle</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6: AI & Coding -->
+        <div class="circle-card" data-category="tech" data-circle-id="tech"
+             data-circle-title="Midnight AI &amp; Flutter Hack Lab"
+             data-circle-category="💻 CODING"
+             data-circle-meta="Sat · 10:00 PM · Campus Innovation Lab (0.4 km)"
+             data-circle-desc="Collaborative coding on generative AI models, Flutter widgets, and open-source project sprints."
+             data-circle-img="assets/images/coding-indian.jpg"
+             data-circle-venue="Campus Innovation Lab, Lucknow"
+             data-circle-host="SkillMate Dev Crew">
+          <div class="card-media-wrap">
+            <img src="assets/images/coding-indian.jpg" alt="Coding Hackathon" class="circle-card-thumb" loading="lazy">
+            <div class="card-hover-action-overlay">
+              <span class="preview-pill">Quick Intel 👁️</span>
+            </div>
+          </div>
+          <div class="circle-card-body">
+            <div class="circle-tag-row">
+              <span class="craft-tag">💻 CODING</span>
+              <span class="spots-badge" data-i18n="circle_coding_spots">14 Joined · 6 Spots Left</span>
+            </div>
+            <h4 class="circle-card-title" data-i18n="circle_coding_title">Midnight AI &amp; Flutter Hack Lab</h4>
+            <div class="circle-card-meta" data-i18n="circle_coding_meta">Sat · 10:00 PM · Campus Innovation Lab (0.4 km)</div>
+            <p class="circle-card-desc" data-i18n="circle_coding_desc">Collaborative coding on generative AI models, Flutter widgets, and open-source project sprints.</p>
+            <div class="circle-card-footer">
+              <div class="host-info">
+                <div class="host-avatar">SP</div>
+                <span data-i18n="circle_coding_host">Hosted by SkillMate Dev Crew</span>
+              </div>
+              <button class="btn-join-circle" data-i18n="card_btn_join">Join Circle</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    
+      </div>
+
+
+
+      <!-- Tab 4: Group Chat -->
+      <div id="app-tab-chat" class="student-tab-pane" style="display:none;">
+        <!-- ========================================================================
+       PAGE VIEW 5: GROUP CHAT (DEDICATED FULL PAGE)
+       ======================================================================== -->
+  <div id="page-chat" class="app-page-view" style="display:block;">
+    <section class="section-wrapper portal-section-view">
+      <div class="chat-portal-layout" id="chat-portal-layout">
+        
+        <!-- Channels Sidebar -->
+        <div class="chat-sidebar">
+          <div class="chat-sidebar-header">
+            <h3 class="chat-sidebar-title">Circle Squads</h3>
+            <span class="badge-active-circles">4 Active</span>
+          </div>
+
+          <div class="chat-channels-list" id="chat-channels-list" data-lenis-prevent="true" data-lenis-prevent-wheel="true" data-lenis-prevent-touch="true">
+            <div class="chat-channel-item active" data-channel="cycling">
+              <span class="channel-emoji">🚲</span>
+              <div class="channel-meta-info">
+                <div class="channel-top">
+                  <strong class="channel-name">Sunday Sunrise Cycling</strong>
+                  <span class="channel-time">6:12 AM</span>
+                </div>
+                <span class="channel-snippet">Kishan: Water bottles &amp; helmets ready!</span>
+              </div>
+            </div>
+
+            <div class="chat-channel-item" data-channel="football">
+              <span class="channel-emoji">⚽</span>
+              <div class="channel-meta-info">
+                <div class="channel-top">
+                  <strong class="channel-name">Friday Night 5v5 Turf</strong>
+                  <span class="channel-time">Yesterday</span>
+                </div>
+                <span class="channel-snippet">Kunal: Bibs arranged, see you on turf!</span>
+              </div>
+            </div>
+
+            <div class="chat-channel-item" data-channel="reading">
+              <span class="channel-emoji">📚</span>
+              <div class="channel-meta-info">
+                <div class="channel-top">
+                  <strong class="channel-name">Sunday Book Circle</strong>
+                  <span class="channel-time">Thu</span>
+                </div>
+                <span class="channel-snippet">Ilma: Chapter 4 discussion this Sat</span>
+              </div>
+            </div>
+
+            <div class="chat-channel-item" data-channel="coding">
+              <span class="channel-emoji">💻</span>
+              <div class="channel-meta-info">
+                <div class="channel-top">
+                  <strong class="channel-name">Midnight AI Hack Lab</strong>
+                  <span class="channel-time">Wed</span>
+                </div>
+                <span class="channel-snippet">Team Spark: Flutter repo updated!</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Chat Area -->
+        <div class="chat-main-window">
+          
+          <!-- Chat Header -->
+          <div class="chat-room-header">
+            <button type="button" class="btn-chat-back" id="btn-chat-back-to-channels" aria-label="Back to Circle Squads">
+              <span>←</span>
+              <span>Squads</span>
+            </button>
+            <div class="room-header-left">
+              <span class="room-icon" id="chat-room-icon">🚲</span>
+              <div>
+                <h3 class="room-name" id="chat-room-title">Sunday Sunrise Cycling &amp; Chai</h3>
+                <div class="room-sub-meta">
+                  <span class="room-venue" id="chat-room-venue">📍 Gomti Riverfront Promenade</span>
+                  <span>·</span>
+                  <span class="room-members-count">9 Verified Members</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="room-header-actions">
+              <span class="circle-status-pill active" id="chat-circle-status">🟢 Active Meetup · Chat Active</span>
+              <button type="button" class="btn-end-circle" id="btn-end-circle" title="End meetup & delete group chat for member privacy">
+                <span>🛑 End Meetup &amp; Delete Chat</span>
+              </button>
+              <div class="online-avatars-group">
+                <span class="tiny-avatar" title="Kishan S.">KS</span>
+                <span class="tiny-avatar" title="Aarav P.">AP</span>
+                <span class="tiny-avatar" title="Riya V.">RV</span>
+                <span class="tiny-avatar-more">+6</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Campus Safety Policy Notice & Active Contact Rule -->
+          <div class="chat-safety-notice-bar" id="chat-safety-notice-bar">
+            <span>🛡️ Campus Privacy Standard: Group chats only exist while this circle meetup is active and are permanently deleted afterwards for member privacy.</span>
+          </div>
+
+          <!-- Privacy Purged Banner Overlay (Shown when circle ends or user not joined) -->
+          <div class="chat-archived-banner" id="chat-archived-banner" style="display:none;">
+            <span class="banner-icon">🛡️</span>
+            <div class="banner-text-wrap">
+              <strong id="chat-banner-title">Meetup Concluded · Chat History Deleted</strong>
+              <p id="chat-banner-desc">For member privacy, all squad messages, media, and chat records were permanently deleted when this meetup ended.</p>
+            </div>
+            <button type="button" class="btn-reopen-circle" id="btn-reopen-circle" style="display:none;">+ Start New Meetup Session 🔄</button>
+          </div>
+
+          <!-- Message Stream Thread -->
+          <div class="chat-messages-container" id="chat-messages-stream" data-lenis-prevent="true" data-lenis-prevent-wheel="true" data-lenis-prevent-touch="true">
+            
+            <div class="chat-message-bubble incoming">
+              <div class="msg-avatar">KS</div>
+              <div class="msg-bubble-content">
+                <div class="msg-sender-name">Kishan Shrivastava <span class="badge-host">Host</span></div>
+                <div class="msg-text">Welcome to Sunday Sunrise Cycling! Check tire pressures and bring a headlight if you have one. 🚴✨</div>
+                <div class="msg-time">3 days ago, 6:00 PM</div>
+              </div>
+            </div>
+
+            <div class="chat-message-bubble incoming">
+              <div class="msg-avatar" style="background:#0ea5e9;">SS</div>
+              <div class="msg-bubble-content">
+                <div class="msg-sender-name">Sneha Sen</div>
+                <div class="msg-text">Super excited! Is the route paved all the way along Gomti Riverfront?</div>
+                <div class="msg-time">2 days ago, 11:20 AM</div>
+              </div>
+            </div>
+
+            <div class="chat-message-bubble incoming">
+              <div class="msg-avatar">KS</div>
+              <div class="msg-bubble-content">
+                <div class="msg-sender-name">Kishan Shrivastava <span class="badge-host">Host</span></div>
+                <div class="msg-text">Yes Sneha, 100% asphalt cycling track with dedicated safety barriers and street lamps. 🛣️</div>
+                <div class="msg-time">2 days ago, 1:15 PM</div>
+              </div>
+            </div>
+
+            <div class="chat-message-bubble incoming">
+              <div class="msg-avatar" style="background:#f59e0b;">DS</div>
+              <div class="msg-bubble-content">
+                <div class="msg-sender-name">Dev Sharma</div>
+                <div class="msg-text">Can I join with an MTB or is a hybrid recommended?</div>
+                <div class="msg-time">Yesterday, 4:30 PM</div>
+              </div>
+            </div>
+
+            <div class="chat-message-bubble incoming">
+              <div class="msg-avatar">KS</div>
+              <div class="msg-bubble-content">
+                <div class="msg-sender-name">Kishan Shrivastava <span class="badge-host">Host</span></div>
+                <div class="msg-text">MTB, hybrid, or road bike — all work great! Our pace is a conversational 18-20 km/h. 🤙</div>
+                <div class="msg-time">Yesterday, 5:00 PM</div>
+              </div>
+            </div>
+
+            <div class="chat-message-bubble incoming">
+              <div class="msg-avatar" style="background:var(--accent-secondary);">AP</div>
+              <div class="msg-bubble-content">
+                <div class="msg-sender-name">Aarav Patel</div>
+                <div class="msg-text">Awesome! Anyone starting from Hostel Block B? We can ride together to the entrance gate.</div>
+                <div class="msg-time">Yesterday, 8:22 PM</div>
+              </div>
+            </div>
+
+            <div class="chat-message-bubble incoming">
+              <div class="msg-avatar" style="background:var(--accent-tertiary);">RV</div>
+              <div class="msg-bubble-content">
+                <div class="msg-sender-name">Riya Verma</div>
+                <div class="msg-text">Yes Aarav! I am leaving from Block B at 5:45 AM. I have also packed a portable tire inflator just in case. ✨</div>
+                <div class="msg-time">Yesterday, 8:26 PM</div>
+              </div>
+            </div>
+
+            <div class="chat-message-bubble incoming">
+              <div class="msg-avatar">KS</div>
+              <div class="msg-bubble-content">
+                <div class="msg-sender-name">Kishan Shrivastava <span class="badge-host">Host</span></div>
+                <div class="msg-text">Perfect teamwork! Meet at the Riverfront Main Arch at 6:00 AM sharp. Kulhad chai on me after the 18 km finish line! ☕🔥</div>
+                <div class="msg-time">Yesterday, 8:30 PM</div>
+              </div>
+            </div>
+
+            <div class="chat-message-bubble incoming">
+              <div class="msg-avatar" style="background:#10b981;">KS</div>
+              <div class="msg-bubble-content">
+                <div class="msg-sender-name">Kunal Singh</div>
+                <div class="msg-text">Alarm set for 5:15 AM! Bringing the campus GoPro for aerial group shots. 📸</div>
+                <div class="msg-time">Yesterday, 10:15 PM</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Chat Typing Bar -->
+          <div class="chat-input-bar">
+            <div class="chat-quick-emojis">
+              <button class="btn-quick-emoji" data-emoji="👍">👍</button>
+              <button class="btn-quick-emoji" data-emoji="🔥">🔥</button>
+              <button class="btn-quick-emoji" data-emoji="🚲">🚲</button>
+              <button class="btn-quick-emoji" data-emoji="☕">☕</button>
+              <button class="btn-quick-emoji" data-emoji="✨">✨</button>
+            </div>
+
+            <form id="chat-send-form" class="chat-input-row">
+              <input type="text" class="chat-text-input" id="chat-input-text" placeholder="Type a message to the circle squad..." autocomplete="off">
+              <button type="submit" class="chat-send-btn">
+                <span>Send</span>
+                <span>🚀</span>
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+  
+      </div>
+
+      <!-- Tab 5: Upload Memories -->
+      <div id="app-tab-memories" class="student-tab-pane" style="display:none;">
+        <!-- ========================================================================
+       PAGE VIEW 4: CAMPUS MEMORIES GALLERY (DEDICATED FULL PAGE)
+       ======================================================================== -->
+  <div id="page-memories" class="app-page-view" style="display:block;">
+    <section class="section-wrapper portal-section-view">
+      <div class="section-header">
+        <span class="section-badge">CAMPUS MOMENTS &amp; HIGHLIGHTS</span>
+        <h2 class="section-title">Circle Memories Feed</h2>
+        <p class="section-subtitle">
+          Relive memories from recent weekly circle meetups. Upload photos from your circles with custom privacy control.
+        </p>
+      </div>
+
+      <div class="memories-toolbar">
+        <div class="memories-filter-chips">
+          <button class="cat-pill-btn active" data-mem-filter="all">All Visible Moments</button>
+          <button class="cat-pill-btn" data-mem-filter="cycling">🚲 Cycling</button>
+          <button class="cat-pill-btn" data-mem-filter="football">⚽ Turf Football</button>
+          <button class="cat-pill-btn" data-mem-filter="reading">📚 Books</button>
+          <button class="cat-pill-btn" data-mem-filter="music">🎸 Jamming</button>
+          <button class="cat-pill-btn" data-mem-filter="my-private">🔒 My Private Vault</button>
+        </div>
+        <button class="btn-upload-memory" id="btn-open-memory-modal">
+          <span>+ Upload Circle Memory</span>
+          <span>📸</span>
+        </button>
+      </div>
+
+      <!-- Memories Cards Grid -->
+      <div class="memories-feed-grid" id="memories-feed-grid">
+        
+        <!-- Memory 1 -->
+        <div class="memory-card" data-category="cycling" data-author-name="Aarav Patel" data-visibility="public" id="card-mem-1">
+          <div class="memory-card-header">
+            <div class="memory-author-avatar">AP</div>
+            <div>
+              <strong class="memory-author-name">Aarav Patel</strong>
+              <span class="memory-circle-label">🚲 Sunday Sunrise Cycling · Gomti Riverfront</span>
+              <span class="mem-privacy-badge public">🌐 Circle Members · Cycling</span>
+            </div>
+            <span class="memory-time-ago">Yesterday</span>
+          </div>
+          <img src="assets/images/cycling-indian.jpg" alt="Cycling Memory" class="memory-photo" loading="lazy">
+          <div class="memory-card-body">
+            <p class="memory-caption">18 km done before 8:00 AM! Sore legs were 100% worth it for the kulhad chai afterwards. Epic ride everyone! 🚴‍♂️☕</p>
+            <div class="memory-actions-row">
+              <button class="btn-memory-like" data-liked="false">
+                <span class="heart-icon">🤍</span>
+                <span class="like-count">48</span> Likes
+              </button>
+              <button type="button" class="btn-memory-comment" data-mem-id="mem-1">
+                💬 <span class="comment-count">2</span> Comments
+              </button>
+            </div>
+          </div>
+          <div class="memory-comments-drawer" id="mem-comments-mem-1" style="display:none;">
+            <div class="memory-comments-list">
+              <div class="memory-comment-item">
+                <div class="comment-avatar">KS</div>
+                <div class="comment-bubble">
+                  <div class="comment-meta">
+                    <span class="comment-author-name">Kishan Shrivastava</span>
+                    <span class="comment-time">Yesterday</span>
+                  </div>
+                  <p class="comment-text">That kulhad chai after the 18km mark was the best part! ☕</p>
+                </div>
+              </div>
+              <div class="memory-comment-item">
+                <div class="comment-avatar">SS</div>
+                <div class="comment-bubble">
+                  <div class="comment-meta">
+                    <span class="comment-author-name">Sneha Sen</span>
+                    <span class="comment-time">18h ago</span>
+                  </div>
+                  <p class="comment-text">Route was super smooth, next Sunday definitely coming again! 🚴</p>
+                </div>
+              </div>
+            </div>
+            <form class="memory-comment-form" data-mem-id="mem-1">
+              <input type="text" class="memory-comment-input" placeholder="Add a comment as your student persona..." required>
+              <button type="submit" class="memory-comment-post-btn">Post 💬</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Memory 2 -->
+        <div class="memory-card" data-category="football" data-author-name="Kunal Singh" data-visibility="public" id="card-mem-2">
+          <div class="memory-card-header">
+            <div class="memory-author-avatar" style="background:var(--accent-secondary);">KS</div>
+            <div>
+              <strong class="memory-author-name">Kunal Singh</strong>
+              <span class="memory-circle-label">⚽ Friday Night 5v5 Turf Football</span>
+              <span class="mem-privacy-badge public">🌐 Circle Members · Football</span>
+            </div>
+            <span class="memory-time-ago">2 days ago</span>
+          </div>
+          <img src="assets/images/football-indian.jpg" alt="Football Memory" class="memory-photo" loading="lazy">
+          <div class="memory-card-body">
+            <p class="memory-caption">Unreal penalty shootout under floodlights. High-energy match, clean play. Next Friday 7:30 PM again! ⚽🔥</p>
+            <div class="memory-actions-row">
+              <button class="btn-memory-like" data-liked="false">
+                <span class="heart-icon">🤍</span>
+                <span class="like-count">62</span> Likes
+              </button>
+              <button type="button" class="btn-memory-comment" data-mem-id="mem-2">
+                💬 <span class="comment-count">2</span> Comments
+              </button>
+            </div>
+          </div>
+          <div class="memory-comments-drawer" id="mem-comments-mem-2" style="display:none;">
+            <div class="memory-comments-list">
+              <div class="memory-comment-item">
+                <div class="comment-avatar">SS</div>
+                <div class="comment-bubble">
+                  <div class="comment-meta">
+                    <span class="comment-author-name">Siddharth S.</span>
+                    <span class="comment-time">1 day ago</span>
+                  </div>
+                  <p class="comment-text">Next Friday rematch for sure! Unreal saves in that penalty round. 🧤</p>
+                </div>
+              </div>
+              <div class="memory-comment-item">
+                <div class="comment-avatar">RG</div>
+                <div class="comment-bubble">
+                  <div class="comment-meta">
+                    <span class="comment-author-name">Rohan Gupta</span>
+                    <span class="comment-time">22h ago</span>
+                  </div>
+                  <p class="comment-text">Great game guys, high intensity throughout the 2 hours! ⚡</p>
+                </div>
+              </div>
+            </div>
+            <form class="memory-comment-form" data-mem-id="mem-2">
+              <input type="text" class="memory-comment-input" placeholder="Add a comment as your student persona..." required>
+              <button type="submit" class="memory-comment-post-btn">Post 💬</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Memory 3 -->
+        <div class="memory-card" data-category="reading" data-author-name="Ilma Islam" data-visibility="public" id="card-mem-3">
+          <div class="memory-card-header">
+            <div class="memory-author-avatar" style="background:var(--accent-tertiary);">II</div>
+            <div>
+              <strong class="memory-author-name">Ilma Islam</strong>
+              <span class="memory-circle-label">📚 Sunday Book Circle &amp; Coffee</span>
+              <span class="mem-privacy-badge public">🌐 Circle Members · Books</span>
+            </div>
+            <span class="memory-time-ago">4 days ago</span>
+          </div>
+          <img src="assets/images/reading-indian.jpg" alt="Book Memory" class="memory-photo" loading="lazy">
+          <div class="memory-card-body">
+            <p class="memory-caption">Deep conversations about speculative sci-fi &amp; philosophy over cold brews at Roastery. Loved the perspectives today! ☕📚</p>
+            <div class="memory-actions-row">
+              <button class="btn-memory-like" data-liked="false">
+                <span class="heart-icon">🤍</span>
+                <span class="like-count">39</span> Likes
+              </button>
+              <button type="button" class="btn-memory-comment" data-mem-id="mem-3">
+                💬 <span class="comment-count">2</span> Comments
+              </button>
+            </div>
+          </div>
+          <div class="memory-comments-drawer" id="mem-comments-mem-3" style="display:none;">
+            <div class="memory-comments-list">
+              <div class="memory-comment-item">
+                <div class="comment-avatar">TR</div>
+                <div class="comment-bubble">
+                  <div class="comment-meta">
+                    <span class="comment-author-name">Tanmay Roy</span>
+                    <span class="comment-time">3 days ago</span>
+                  </div>
+                  <p class="comment-text">The chapter 4 discussion was so insightful. Loved the cold brews too!</p>
+                </div>
+              </div>
+              <div class="memory-comment-item">
+                <div class="comment-avatar">MJ</div>
+                <div class="comment-bubble">
+                  <div class="comment-meta">
+                    <span class="comment-author-name">Meera Joshi</span>
+                    <span class="comment-time">2 days ago</span>
+                  </div>
+                  <p class="comment-text">Adding the book recommendations to my reading list right away. 📖</p>
+                </div>
+              </div>
+            </div>
+            <form class="memory-comment-form" data-mem-id="mem-3">
+              <input type="text" class="memory-comment-input" placeholder="Add a comment as your student persona..." required>
+              <button type="submit" class="memory-comment-post-btn">Post 💬</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Memory 4 -->
+        <div class="memory-card" data-category="music" data-author-name="Khushhal Tiwari" data-visibility="public" id="card-mem-4">
+          <div class="memory-card-header">
+            <div class="memory-author-avatar" style="background:var(--accent-primary);">KT</div>
+            <div>
+              <strong class="memory-author-name">Khushhal Tiwari</strong>
+              <span class="memory-circle-label">🎸 Acoustic Jamming Circle · Amphitheater</span>
+              <span class="mem-privacy-badge public">🌐 Circle Members · Jamming</span>
+            </div>
+            <span class="memory-time-ago">5 days ago</span>
+          </div>
+          <img src="assets/images/music-indian.jpg" alt="Jamming Memory" class="memory-photo" loading="lazy">
+          <div class="memory-card-body">
+            <p class="memory-caption">Sunset acoustic vibes on amphitheater steps. Jammed to Indie and 90s Bollywood classics with cold chai. Next session Thursday! 🎸☕✨</p>
+            <div class="memory-actions-row">
+              <button class="btn-memory-like" data-liked="false">
+                <span class="heart-icon">🤍</span>
+                <span class="like-count">54</span> Likes
+              </button>
+              <button type="button" class="btn-memory-comment" data-mem-id="mem-4">
+                💬 <span class="comment-count">2</span> Comments
+              </button>
+            </div>
+          </div>
+          <div class="memory-comments-drawer" id="mem-comments-mem-4" style="display:none;">
+            <div class="memory-comments-list">
+              <div class="memory-comment-item">
+                <div class="comment-avatar">RV</div>
+                <div class="comment-bubble">
+                  <div class="comment-meta">
+                    <span class="comment-author-name">Riya Verma</span>
+                    <span class="comment-time">4 days ago</span>
+                  </div>
+                  <p class="comment-text">That unplugged rendition of 'Kabira' on the steps was magical ✨🎸</p>
+                </div>
+              </div>
+              <div class="memory-comment-item">
+                <div class="comment-avatar">AP</div>
+                <div class="comment-bubble">
+                  <div class="comment-meta">
+                    <span class="comment-author-name">Aarav Patel</span>
+                    <span class="comment-time">3 days ago</span>
+                  </div>
+                  <p class="comment-text">Count me in for Thursday session! Bringing my cajon drum.</p>
+                </div>
+              </div>
+            </div>
+            <form class="memory-comment-form" data-mem-id="mem-4">
+              <input type="text" class="memory-comment-input" placeholder="Add a comment as your student persona..." required>
+              <button type="submit" class="memory-comment-post-btn">Post 💬</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  
+      </div>
+    <!-- Mobile Bottom Navigation Bar (Sticky within thumb reach on mobile screens) -->
+    <nav class="student-mobile-bottom-nav" id="student-mobile-bottom-nav" aria-label="Mobile Navigation">
+      <button type="button" class="student-tab-btn active" data-app-tab="create-circle" aria-label="Host Circle">
+        <span class="mobile-nav-icon">➕</span>
+        <span class="mobile-nav-label">Host</span>
+      </button>
+      <button type="button" class="student-tab-btn" data-app-tab="join-circle" aria-label="Discover Circles">
+        <span class="mobile-nav-icon">🧭</span>
+        <span class="mobile-nav-label">Discover</span>
+      </button>
+      <button type="button" class="student-tab-btn" data-app-tab="chat" aria-label="Circle Squads Chat">
+        <span class="mobile-nav-icon">💬</span>
+        <span class="mobile-nav-label">Squads</span>
+      </button>
+      <button type="button" class="student-tab-btn" data-app-tab="memories" aria-label="Moments & Feed">
+        <span class="mobile-nav-icon">📸</span>
+        <span class="mobile-nav-label">Moments</span>
+      </button>
+    </nav>
+  </div> <!-- /#view-student-app -->
+
+  <!-- ========================================================================
+       AUTH MODAL (FOCUSED LOGIN & PROGRESSIVE 4-STEP SIGN UP)
+       ======================================================================== -->
+  <div class="modal-backdrop" id="auth-modal" data-lenis-prevent="true" data-lenis-prevent-wheel="true" data-lenis-prevent-touch="true">
+    <div class="modal-content-box auth-modal-box" data-lenis-prevent="true" data-lenis-prevent-wheel="true" data-lenis-prevent-touch="true">
+      <!-- Floating Top Close Button -->
+      <button class="modal-close-btn" id="close-auth-modal" aria-label="Close dialog">&times;</button>
+
+      <!-- Hidden tab buttons to preserve compatibility with existing event handlers -->
+      <div class="auth-tabs-row" style="display:none;">
+        <button type="button" class="auth-tab-btn active" id="tab-login-btn"><span>Sign In</span></button>
+        <button type="button" class="auth-tab-btn" id="tab-signup-btn"><span>Sign Up</span></button>
+      </div>
+
+      <!-- ====================================================================
+           1. SIMPLIFIED FOCUSED LOGIN VIEW
+           Strict Hierarchy: Logo -> Headline -> Subline -> Inputs -> Primary CTA -> Google CTA -> Signup Link
+           ==================================================================== -->
+      <div id="auth-login-view" class="auth-mode-view active">
+        <div class="auth-focused-container">
+          <!-- 1. Logo -->
+          <div class="auth-brand-emblem-wrap entrance-item entrance-delay-1">
+            <img src="assets/skillmate-icon.png" alt="SkillMate" class="auth-brand-emblem">
+          </div>
+
+          <!-- 2. Short welcoming headline -->
+          <h2 class="auth-headline entrance-item entrance-delay-2" id="auth-modal-title">Welcome back to SkillMate</h2>
+
+          <!-- 3. One-line supporting text -->
+          <p class="auth-subline entrance-item entrance-delay-3" id="auth-modal-subtitle">
+            Connect with student circles, vetted meetups, and real hobby groups across campus.
+          </p>
+
+          <!-- 4 & 5. Form (Email & Password) -->
+          <form id="auth-login-form" class="auth-form-clean entrance-item entrance-delay-4">
+            <div class="form-field-spacious">
+              <label class="form-label-hierarchical primary-label" for="login-email">College Email or Phone</label>
+              <div class="input-focus-container">
+                <span class="field-icon">✉️</span>
+                <input type="text" class="input-large-spacious" id="login-email" placeholder="name@campus.edu or phone" value="kishan.shrivastava@gmail.com" required autocomplete="username">
+              </div>
+            </div>
+
+            <div class="form-field-spacious">
+              <div class="field-label-split">
+                <label class="form-label-hierarchical primary-label" for="login-password">Password</label>
+                <a href="#" class="field-tertiary-link" id="link-forgot-pass">Forgot password?</a>
+              </div>
+              <div class="input-focus-container">
+                <span class="field-icon">🔒</span>
+                <input type="password" class="input-large-spacious" id="login-password" placeholder="Enter your password" value="campus123" required autocomplete="current-password">
+              </div>
+            </div>
+
+            <!-- 6. Primary Login button -->
+            <button type="submit" class="btn-primary-action btn-auth-submit" id="btn-login-submit">
+              <span>Sign In to Student Portal</span>
+              <span class="btn-action-arrow">→</span>
+            </button>
+          </form>
+
+          <!-- 7. Secondary authentication option (Google + 1-Tap Demo) -->
+          <div class="auth-secondary-section entrance-item entrance-delay-5">
+            <div class="auth-divider-clean">
+              <span>or continue with</span>
+            </div>
+            <button type="button" class="btn-google-auth-spacious" id="btn-google-auth">
+              <svg class="google-svg" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+              </svg>
+              <span>Continue with Google</span>
+            </button>
+
+            <!-- 1-Tap Quick Demo Credentials -->
+            <div class="demo-quick-row">
+              <span class="demo-quick-label">⚡ 1-Click Fast Student Demo:</span>
+              <div class="demo-quick-chips">
+                <button type="button" class="btn-demo-pill" data-demo-user="kishan">
+                  <span class="demo-pill-avatar">KS</span>
+                  <span>Kishan Shrivastava</span>
+                </button>
+                <button type="button" class="btn-demo-pill" data-demo-user="riya">
+                  <span class="demo-pill-avatar" style="background:#8367c7;">RV</span>
+                  <span>Riya Verma</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. Signup / account recovery prompt -->
+          <div class="auth-recovery-footer entrance-item entrance-delay-5">
+            <span>Don't have a student account?</span>
+            <button type="button" class="auth-link-action" id="btn-switch-to-signup">Create an account</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           2. PROGRESSIVE DISCLOSURE SIGN UP WIZARD (4 LOGICAL STAGES)
+           Step 1: Basic Info -> Step 2: Hobbies & Interests -> Step 3: Campus Details -> Step 4: Security & Confirm
+           ==================================================================== -->
+      <div id="auth-signup-view" class="auth-mode-view" style="display:none;">
+        <div class="signup-wizard-container">
+          <!-- Stepper Progress Header -->
+          <div class="progressive-stepper-header">
+            <div class="stepper-progress-track">
+              <div class="stepper-progress-fill" id="signup-progress-fill" style="width: 25%;"></div>
+            </div>
+            <div class="stepper-dots-row">
+              <button type="button" class="stepper-dot active" data-signup-step="1">
+                <span class="dot-num">1</span>
+                <span class="dot-label">Identity</span>
+              </button>
+              <button type="button" class="stepper-dot" data-signup-step="2">
+                <span class="dot-num">2</span>
+                <span class="dot-label">Interests</span>
+              </button>
+              <button type="button" class="stepper-dot" data-signup-step="3">
+                <span class="dot-num">3</span>
+                <span class="dot-label">Campus</span>
+              </button>
+              <button type="button" class="stepper-dot" data-signup-step="4">
+                <span class="dot-num">4</span>
+                <span class="dot-label">Confirm</span>
+              </button>
+            </div>
+          </div>
+
+          <form id="auth-signup-form">
+            <!-- STAGE 1: Basic Information -->
+            <div class="signup-stage-panel active" id="signup-stage-1">
+              <div class="stage-title-block">
+                <h3 class="stage-title">Welcome! Tell us who you are</h3>
+                <p class="stage-explanation">Enter your basic student credentials to initiate your campus profile.</p>
+              </div>
+
+              <div class="form-field-spacious">
+                <label class="form-label-hierarchical primary-label" for="signup-name">Full Name</label>
+                <div class="input-focus-container">
+                  <span class="field-icon">👤</span>
+                  <input type="text" class="input-large-spacious" id="signup-name" placeholder="e.g. Aarav Patel" required>
+                </div>
+              </div>
+
+              <div class="form-field-spacious">
+                <label class="form-label-hierarchical primary-label" for="signup-email">College Email ID / Gmail</label>
+                <div class="input-focus-container">
+                  <span class="field-icon">✉️</span>
+                  <input type="email" class="input-large-spacious" id="signup-email" placeholder="e.g. aarav.patel@gmail.com" required>
+                </div>
+              </div>
+
+              <div class="wizard-nav-actions">
+                <button type="button" class="btn-secondary-action btn-wizard-back" id="btn-signup-back-to-login">
+                  <span>← Back to Sign In</span>
+                </button>
+                <button type="button" class="btn-primary-action btn-wizard-continue" id="btn-signup-step1-next">
+                  <span>Next: Choose Interests</span>
+                  <span class="btn-action-arrow">→</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- STAGE 2: Preferences & Interests -->
+            <div class="signup-stage-panel" id="signup-stage-2" style="display:none;">
+              <div class="stage-title-block">
+                <h3 class="stage-title">What are your passions?</h3>
+                <p class="stage-explanation">Pick hobbies you want to practice with peers. You can change these anytime.</p>
+              </div>
+
+              <div class="form-field-spacious">
+                <label class="form-label-hierarchical primary-label">Your Hobbies &amp; Interests (Select all that apply):</label>
+                <div class="hobby-chips-selector" id="signup-hobbies-container">
+                  <button type="button" class="hobby-chip-btn active" data-hobby="cycling">🚲 Cycling</button>
+                  <button type="button" class="hobby-chip-btn active" data-hobby="football">⚽ Turf Football</button>
+                  <button type="button" class="hobby-chip-btn" data-hobby="reading">📚 Reading &amp; Coffee</button>
+                  <button type="button" class="hobby-chip-btn" data-hobby="music">🎸 Acoustic Jam</button>
+                  <button type="button" class="hobby-chip-btn" data-hobby="coding">💻 AI &amp; Hackathons</button>
+                  <button type="button" class="hobby-chip-btn" data-hobby="fitness">🏋️ Gym &amp; Calisthenics</button>
+                  <button type="button" class="hobby-chip-btn" data-hobby="art">🎨 Sketching &amp; Art</button>
+                  <button type="button" class="hobby-chip-btn" data-hobby="photography">📸 Photography</button>
+                  <button type="button" class="hobby-chip-btn" data-hobby="gaming">♟️ Chess &amp; Gaming</button>
+                </div>
+              </div>
+
+              <div class="wizard-nav-actions">
+                <button type="button" class="btn-secondary-action btn-wizard-back" id="btn-signup-step2-back">
+                  <span>← Back</span>
+                </button>
+                <button type="button" class="btn-primary-action btn-wizard-continue" id="btn-signup-step2-next">
+                  <span>Next: Campus Details</span>
+                  <span class="btn-action-arrow">→</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- STAGE 3: Additional Campus Details -->
+            <div class="signup-stage-panel" id="signup-stage-3" style="display:none;">
+              <div class="stage-title-block">
+                <h3 class="stage-title">Your campus community details</h3>
+                <p class="stage-explanation">Help peers recognize you in circle meetups and workshop sessions.</p>
+              </div>
+
+              <div class="form-row-responsive">
+                <div class="form-field-spacious">
+                  <label class="form-label-hierarchical primary-label" for="signup-batch">Batch &amp; Branch</label>
+                  <div class="input-focus-container">
+                    <span class="field-icon">🎓</span>
+                    <input type="text" class="input-large-spacious" id="signup-batch" placeholder="e.g. B.Tech CSE, 2nd Year" required>
+                  </div>
+                </div>
+                <div class="form-field-spacious">
+                  <label class="form-label-hierarchical primary-label" for="signup-hostel">Hostel / Campus Zone</label>
+                  <div class="input-focus-container">
+                    <span class="field-icon">🏢</span>
+                    <input type="text" class="input-large-spacious" id="signup-hostel" placeholder="e.g. Hostel Block B">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-field-spacious">
+                <label class="form-label-hierarchical primary-label" for="signup-bio">Skills to Share / Short Bio</label>
+                <textarea class="input-large-spacious input-textarea-clean" id="signup-bio" rows="2" placeholder="e.g. Road cyclist, can teach basic guitar chords or Python!"></textarea>
+              </div>
+
+              <div class="wizard-nav-actions">
+                <button type="button" class="btn-secondary-action btn-wizard-back" id="btn-signup-step3-back">
+                  <span>← Back</span>
+                </button>
+                <button type="button" class="btn-primary-action btn-wizard-continue" id="btn-signup-step3-next">
+                  <span>Next: Security &amp; Confirm</span>
+                  <span class="btn-action-arrow">→</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- STAGE 4: Security & Confirmation -->
+            <div class="signup-stage-panel" id="signup-stage-4" style="display:none;">
+              <div class="stage-title-block">
+                <h3 class="stage-title">Set your password &amp; launch</h3>
+                <p class="stage-explanation">Create a secure passcode and verify your profile snapshot.</p>
+              </div>
+
+              <div class="form-field-spacious">
+                <label class="form-label-hierarchical primary-label" for="signup-password">Create Password</label>
+                <div class="input-focus-container">
+                  <span class="field-icon">🔒</span>
+                  <input type="password" class="input-large-spacious" id="signup-password" placeholder="Choose a secure password" value="student123" required autocomplete="new-password">
+                </div>
+              </div>
+
+              <!-- Profile Snapshot Card -->
+              <div class="profile-snapshot-card">
+                <div class="snapshot-header">
+                  <span class="snapshot-badge">PROFILE SUMMARY</span>
+                </div>
+                <div class="snapshot-body">
+                  <div class="snapshot-avatar" id="signup-snapshot-avatar">AP</div>
+                  <div class="snapshot-info">
+                    <strong id="signup-snapshot-name">Aarav Patel</strong>
+                    <span id="signup-snapshot-email">aarav.patel@gmail.com</span>
+                    <small id="signup-snapshot-meta">B.Tech CSE · Hobbies Selected: 2</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="wizard-nav-actions">
+                <button type="button" class="btn-secondary-action btn-wizard-back" id="btn-signup-step4-back">
+                  <span>← Back</span>
+                </button>
+                <button type="submit" class="btn-primary-action btn-auth-submit" id="btn-signup-submit">
+                  <span>Register &amp; Unlock Verified Hub ✨</span>
+                  <span class="btn-action-arrow">→</span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       AUTHENTIC GOOGLE ACCOUNT CHOOSER MODAL (SAVED DEVICE ACCOUNTS)
+       ======================================================================== -->
+  <div class="modal-backdrop" id="google-account-chooser-modal" data-lenis-prevent="true" data-lenis-prevent-wheel="true" data-lenis-prevent-touch="true">
+    <div class="modal-content-box google-chooser-box" data-lenis-prevent="true" data-lenis-prevent-wheel="true" data-lenis-prevent-touch="true">
+      <div class="google-chooser-header">
+        <svg class="google-svg" viewBox="0 0 24 24" width="28" height="28">
+          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+        </svg>
+        <button class="modal-close-btn" id="close-google-chooser-modal" aria-label="Close Google Chooser">&times;</button>
+      </div>
+      
+      <div class="google-chooser-title-group">
+        <h3 class="google-chooser-title">Choose an account</h3>
+        <p class="google-chooser-subtitle">to continue to <strong>SkillMate Campus Hub</strong></p>
+      </div>
+
+      <div class="google-account-list">
+        <!-- Account 1: Aarav Patel -->
+        <button type="button" class="google-account-item" data-google-user="aarav">
+          <div class="google-account-avatar" style="background:#2ca58d;">AP</div>
+          <div class="google-account-info">
+            <div class="google-account-name">Aarav Patel</div>
+            <div class="google-account-email">aarav.patel@gmail.com</div>
+          </div>
+          <span class="google-device-badge">Device Account</span>
+        </button>
+
+        <!-- Account 2: Kishan Shrivastava -->
+        <button type="button" class="google-account-item" data-google-user="kishan">
+          <div class="google-account-avatar" style="background:#1d4ed8;">KS</div>
+          <div class="google-account-info">
+            <div class="google-account-name">Kishan Shrivastava</div>
+            <div class="google-account-email">kishan.shrivastava@gmail.com</div>
+          </div>
+          <span class="google-device-badge">Device Account</span>
+        </button>
+
+        <!-- Account 3: Riya Verma -->
+        <button type="button" class="google-account-item" data-google-user="riya">
+          <div class="google-account-avatar" style="background:#8367c7;">RV</div>
+          <div class="google-account-info">
+            <div class="google-account-name">Riya Verma</div>
+            <div class="google-account-email">riya.verma@gmail.com</div>
+          </div>
+          <span class="google-device-badge">Device Account</span>
+        </button>
+
+        <!-- Use another account -->
+        <button type="button" class="google-account-item google-use-another" id="btn-google-use-another">
+          <div class="google-account-avatar" style="background:var(--bg-secondary); color:var(--text-muted); border:1px dashed var(--border-color);">+</div>
+          <div class="google-account-info">
+            <div class="google-account-name">Use another account</div>
+            <div class="google-account-email">Sign in with a different Gmail address</div>
+          </div>
+        </button>
+      </div>
+
+      <div class="google-chooser-footer">
+        <p>To continue, Google will share your name, email address, and profile picture with SkillMate. Review SkillMate's campus privacy policy before continuing.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       STUDENT PROFILE EDIT MODAL
+       ======================================================================== -->
+  <div class="modal-backdrop" id="edit-profile-modal" data-lenis-prevent="true" data-lenis-prevent-wheel="true" data-lenis-prevent-touch="true">
+    <div class="modal-content-box edit-profile-box" data-lenis-prevent="true" data-lenis-prevent-wheel="true" data-lenis-prevent-touch="true">
+      <div class="modal-header">
+        <div>
+          <span class="auth-gate-badge">CAMPUS PROFILE</span>
+          <h3 class="card-title">Edit Student Profile ✏️</h3>
+        </div>
+        <button class="modal-close-btn" id="close-edit-profile-modal" aria-label="Close Profile Edit">&times;</button>
+      </div>
+      <p class="section-subtitle" style="font-size:0.88rem; margin-bottom:20px;">
+        Update your student identity, branch, and hobbies visible to circle members across campus.
+      </p>
+
+      <form id="edit-profile-form">
+        <div class="form-field-spacious">
+          <label class="form-label-hierarchical primary-label" for="edit-profile-name">Full Name</label>
+          <div class="input-focus-container">
+            <span class="field-icon">👤</span>
+            <input type="text" class="input-large-spacious" id="edit-profile-name" placeholder="Your Full Name" required>
+          </div>
+        </div>
+
+        <div class="form-field-spacious">
+          <label class="form-label-hierarchical primary-label" for="edit-profile-email">Email ID / Gmail</label>
+          <div class="input-focus-container">
+            <span class="field-icon">✉️</span>
+            <input type="email" class="input-large-spacious" id="edit-profile-email" placeholder="name@college.edu" required>
+          </div>
+        </div>
+
+        <div class="form-row-responsive">
+          <div class="form-field-spacious">
+            <label class="form-label-hierarchical primary-label" for="edit-profile-batch">Batch &amp; Branch</label>
+            <div class="input-focus-container">
+              <span class="field-icon">🎓</span>
+              <input type="text" class="input-large-spacious" id="edit-profile-batch" placeholder="e.g. B.Tech CSE, 2nd Year" required>
+            </div>
+          </div>
+          <div class="form-field-spacious">
+            <label class="form-label-hierarchical primary-label" for="edit-profile-hostel">Hostel / Campus Zone</label>
+            <div class="input-focus-container">
+              <span class="field-icon">🏢</span>
+              <input type="text" class="input-large-spacious" id="edit-profile-hostel" placeholder="e.g. Hostel Block B">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-field-spacious">
+          <label class="form-label-hierarchical primary-label">Your Hobbies &amp; Interests (Select all that apply):</label>
+          <div class="hobby-chips-selector" id="edit-profile-hobbies-container">
+            <button type="button" class="hobby-chip-btn" data-hobby="cycling">🚲 Cycling</button>
+            <button type="button" class="hobby-chip-btn" data-hobby="football">⚽ Turf Football</button>
+            <button type="button" class="hobby-chip-btn" data-hobby="reading">📚 Reading &amp; Coffee</button>
+            <button type="button" class="hobby-chip-btn" data-hobby="music">🎸 Acoustic Jam</button>
+            <button type="button" class="hobby-chip-btn" data-hobby="coding">💻 AI &amp; Hackathons</button>
+            <button type="button" class="hobby-chip-btn" data-hobby="fitness">🏋️ Gym &amp; Calisthenics</button>
+            <button type="button" class="hobby-chip-btn" data-hobby="art">🎨 Sketching &amp; Art</button>
+            <button type="button" class="hobby-chip-btn" data-hobby="photography">📸 Photography</button>
+            <button type="button" class="hobby-chip-btn" data-hobby="gaming">♟️ Chess &amp; Gaming</button>
+          </div>
+        </div>
+
+        <div class="form-field-spacious">
+          <label class="form-label-hierarchical primary-label" for="edit-profile-bio">Skills to Share / Short Bio</label>
+          <textarea class="input-large-spacious input-textarea-clean" id="edit-profile-bio" rows="2" placeholder="e.g. Intermediate road cyclist, can teach basic acoustic guitar chords!"></textarea>
+        </div>
+
+        <div class="wizard-nav-actions" style="margin-top:10px;">
+          <button type="button" class="btn-secondary-action" id="btn-cancel-edit-profile">Cancel</button>
+          <button type="submit" class="btn-primary-action" id="btn-save-profile">
+            <span>Save Profile Changes ✓</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       UPLOAD CIRCLE MEMORY MODAL
+       ======================================================================== -->
+  <div class="modal-backdrop" id="upload-memory-modal" data-lenis-prevent="true" data-lenis-prevent-wheel="true" data-lenis-prevent-touch="true">
+    <div class="modal-content-box" style="max-width:540px;" data-lenis-prevent="true" data-lenis-prevent-wheel="true" data-lenis-prevent-touch="true">
+      <div class="modal-header">
+        <div>
+          <span class="auth-gate-badge">COMMUNITY HIGHLIGHT</span>
+          <h3 class="card-title">Share a Circle Memory 📸</h3>
+        </div>
+        <button class="modal-close-btn" id="close-upload-memory-modal">&times;</button>
+      </div>
+      <p class="section-subtitle" style="font-size:0.86rem; margin-bottom:16px;">
+        Upload photos from your recent meetups to inspire other campus students.
+      </p>
+
+      <form id="upload-memory-form" style="display:flex; flex-direction:column; gap:14px;">
+        <div class="form-group">
+          <label class="form-label">Which Circle Meetup?</label>
+          <select class="form-select" id="mem-circle-select" required>
+            <option value="cycling">🚲 Sunday Sunrise Cycling · Gomti Riverfront</option>
+            <option value="football">⚽ Friday Night 5v5 Turf Football</option>
+            <option value="reading">📚 Sunday Book Circle &amp; Coffee</option>
+            <option value="coding">💻 Midnight AI Hackathon Lab</option>
+            <option value="music">🎸 Acoustic Music Jam &amp; Chai</option>
+          </select>
+        </div>
+
+        <!-- Real Photo Upload Dropzone with Live Preview + Fallback Presets -->
+        <div class="form-group">
+          <label class="form-label">Meetup Photo:</label>
+          <div class="photo-upload-dropzone" id="mem-photo-dropzone">
+            <input type="file" id="mem-photo-file" accept="image/*" style="display:none;">
+            <div class="dropzone-content" id="dropzone-prompt">
+              <span class="upload-icon" style="font-size:1.8rem;">📷</span>
+              <strong>Click or Drag Photo to Upload</strong>
+              <small style="color:var(--text-muted); font-size:0.75rem;">Select any photo from your phone or PC</small>
+            </div>
+            <img id="mem-preview-img" src="" alt="Upload Preview" style="display:none;" class="upload-preview-thumb">
+          </div>
+
+          <div class="preset-picker-row" style="margin-top:8px;">
+            <span style="font-size:0.75rem; color:var(--text-muted); font-weight:600;">Or pick a curated preset:</span>
+            <select class="form-select" id="mem-photo-preset" style="padding:6px 10px; font-size:0.8rem; margin-top:4px;">
+              <option value="">-- Choose from preset meetups --</option>
+              <option value="assets/images/cycling-indian.jpg">🚲 Morning Riverfront Cycling Crew</option>
+              <option value="assets/images/football-indian.jpg">⚽ Floodlit Turf Football Celebration</option>
+              <option value="assets/images/reading-indian.jpg">📚 Coffee &amp; Book Discussion Table</option>
+              <option value="assets/images/music-indian.jpg">🎸 Amphitheater Acoustic Jam Session</option>
+              <option value="assets/images/coding-indian.jpg">💻 AI &amp; Hackathon Collaboration</option>
+              <option value="assets/images/fitness-indian.jpg">🏋️ Sunrise Calisthenics &amp; Workout</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Caption / Highlight Moment:</label>
+          <textarea class="form-input" id="mem-caption" rows="3" placeholder="What made this session memorable? Mention great plays, chai stops, breakthroughs..." required></textarea>
+        </div>
+
+        <!-- Privacy & Visibility Control (Public to Circle vs Private) -->
+        <div class="form-group">
+          <label class="form-label">Privacy &amp; Visibility:</label>
+          <div class="mem-privacy-toggle-wrapper">
+            <label class="mem-privacy-option active" id="mem-vis-opt-public">
+              <input type="radio" name="mem-visibility" value="public" checked style="display:none;">
+              <div class="privacy-option-content">
+                <span class="privacy-icon">🌐</span>
+                <div>
+                  <strong>Public to Circle Members</strong>
+                  <small>Visible to students who share a common circle with you</small>
+                </div>
+              </div>
+            </label>
+            <label class="mem-privacy-option" id="mem-vis-opt-private">
+              <input type="radio" name="mem-visibility" value="private" style="display:none;">
+              <div class="privacy-option-content">
+                <span class="privacy-icon">🔒</span>
+                <div>
+                  <strong>Private (Only You)</strong>
+                  <small>Visible only to you in your personal campus vault</small>
+                </div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:8px;">
+          <button type="button" class="nav-ctrl-btn" id="cancel-upload-memory">Cancel</button>
+          <button type="submit" class="nav-primary-action">Post Memory to Feed ✨</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       INTERACTIVE CIRCLE QUICK INTEL & RSVP MODAL
+       ======================================================================== -->
+  <div class="modal-backdrop" id="circle-detail-modal" data-lenis-prevent="true" data-lenis-prevent-wheel="true" data-lenis-prevent-touch="true">
+    <div class="modal-content-box circle-intel-modal" data-lenis-prevent="true" data-lenis-prevent-wheel="true" data-lenis-prevent-touch="true">
+      <div class="intel-modal-header">
+        <button class="modal-close-btn" id="close-intel-modal">&times;</button>
+        <img id="intel-img" src="" alt="Circle" class="intel-banner-img">
+        <div class="intel-banner-overlay">
+          <span class="craft-tag" id="intel-category">🚲 CYCLING</span>
+          <h3 id="intel-title" class="intel-banner-title">Sunday Sunrise Cycling &amp; Chai</h3>
+          <span class="intel-banner-meta" id="intel-meta">Sun · 6:00 AM · Gomti Riverfront</span>
+        </div>
+      </div>
+      <div class="intel-modal-body">
+        <div class="intel-grid-row">
+          <div class="intel-col-left">
+            <h4 class="intel-sub-heading">About this Circle</h4>
+            <p id="intel-desc" class="intel-desc-text">Calm riverfront cruise followed by kulhad chai. All skill levels welcome.</p>
+            
+            <h4 class="intel-sub-heading" style="margin-top:16px;">Vetted Public Venue</h4>
+            <div class="intel-venue-card">
+              <span class="venue-icon">📍</span>
+              <div>
+                <strong id="intel-venue-title">Gomti Riverfront</strong>
+                <div class="venue-sub">CCTV Monitored · Public Space · Safe Zone</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="intel-col-right">
+            <h4 class="intel-sub-heading">Attending Campus Peers</h4>
+            <div class="intel-attendees-list">
+              <div class="attendee-chip"><div class="attendee-dot"></div> <span id="intel-host-name">Kishan S. (Host)</span></div>
+              <div class="attendee-chip"><div class="attendee-dot"></div> Kunal S. (Verified)</div>
+              <div class="attendee-chip"><div class="attendee-dot"></div> Aarav P. (CSE)</div>
+              <div class="attendee-chip"><div class="attendee-dot"></div> Riya V. (AI/ML)</div>
+            </div>
+            
+            <div class="intel-action-group">
+              <button class="intel-rsvp-btn" id="intel-join-btn">Join &amp; RSVP Now ✨</button>
+              <button class="intel-share-btn" id="intel-share-btn">Share Link 🔗</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-notice" id="app-toast"></div>
+
+  <!-- Scripts -->
+    <!-- Animation Vendors (Local with CDN Fallback) -->
+  <script src="assets/vendor/lenis.min.js"></script>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="translations.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
